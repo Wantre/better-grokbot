@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "notes": "Ferme les clones de Grok Bot avant l'installeur, installe la nouvelle version, puis repatche la copie.",
+  "sha256": "68c05d8d954b22cf5de62614b627128c11d0fcc9f05044fcb8c4d0407bdca7a5",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.0.0/better-grokbot-patch.zip"
+}
