@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "notes": "Le quota Cursor affiche le pourcentage du compte.",
-  "sha256": "00208d26b8f1658c8e74bd036c9dce3ca5fdf89020cea7dacb7a57dc68bbe6cf",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.0.1/better-grokbot-patch.zip"
+  "version": "1.0.2",
+  "notes": "Pont rangé, logos des fournisseurs, installation des programmes et clés chiffrées. Le détail est dans CHANGELOG.md.",
+  "sha256": "72107aae313816412befe771c3f2c61d54f93a927258f3fd692e096c02d57aa1",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.0.2/better-grokbot-patch.zip"
 }
