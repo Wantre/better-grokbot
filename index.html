@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="fr" data-pal="braise">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Better GrokBot · Grok Bot, avec un châssis complet</title>
+<meta name="description" content="Better GrokBot est une copie privée de Grok Bot. Rail de navigation, palette Ctrl K, barre Répond vers Cursor, Claude ou Codex, quotas en direct et trois palettes. L’installation d’origine n’est jamais modifiée.">
+<meta property="og:title" content="Better GrokBot">
+<meta property="og:description" content="Grok Bot, avec un rail, une palette, des ponts vers d’autres IA et les quotas en direct. L’original reste intact.">
+<link rel="canonical" href="https://wantre.github.io/better-grokbot/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wantre.github.io/better-grokbot/">
+<meta property="og:site_name" content="Better GrokBot">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://wantre.github.io/better-grokbot/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Better GrokBot : Grok Bot avec un rail, une palette Ctrl K, la barre Répond et les quotas en direct.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Better GrokBot">
+<meta name="twitter:description" content="Grok Bot, avec un rail, une palette, des ponts vers d’autres IA et les quotas en direct. L’original reste intact.">
+<meta name="twitter:image" content="https://wantre.github.io/better-grokbot/og-image.png">
+<meta name="author" content="Wantre">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="media/app-splash.webp" as="image">
+<style>
+@font-face{font-family:"BG Display";src:url("fonts/display.woff2") format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"BG UI";src:url("fonts/ui.woff2") format("woff2");font-weight:400 700;font-display:swap}
+
+:root{
+  --bg:#000;--s1:#0c0c0e;--s2:#141417;--s3:#1c1c20;
+  --line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);
+  --ink:#f6f5f3;--ink-2:#c9c7c4;--mute:#9a9aa3;
+  --acc:#ff8a2b;--acc-2:#ff3d2e;--acc-3:#6b5cf0;--acc-hi:#ffd08a;
+  --ease:cubic-bezier(.32,.72,0,1);--ease-out:cubic-bezier(.16,1,.3,1);
+  --col:1200px;--pad:clamp(20px,4vw,48px);
+  --r-xl:28px;--r-lg:20px;--r-md:14px;--r-sm:10px;
+  --display:"BG Display","Segoe UI",system-ui,sans-serif;--ui:"BG UI","Segoe UI",system-ui,sans-serif;
+}
+html[data-pal="aube"]{--acc:#ff7fa8;--acc-2:#ffb85c;--acc-3:#36cfe0;--acc-hi:#ffd8e4}
+html[data-pal="nuit"]{--acc:#9a8cff;--acc-2:#ff8a4c;--acc-3:#4a49c8;--acc-hi:#dcd6ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:88px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:540;letter-spacing:-.035em;text-wrap:balance}
+::selection{background:var(--acc);color:#120a04}
+:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px;border-radius:8px}
+.skip{position:fixed;left:16px;top:-60px;z-index:100;background:#fff;color:#000;padding:8px 12px;border-radius:10px;font-weight:600;transition:top .3s var(--ease)}
+.skip:focus{top:12px}
+.wrap{width:100%;max-width:calc(var(--col) + 2*var(--pad));margin:0 auto;padding:0 var(--pad)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+kbd{font:600 12px/1 var(--ui);padding:4px 7px;border-radius:7px;background:var(--s3);box-shadow:inset 0 0 0 1px var(--line-2),0 1px 0 rgba(255,255,255,.08);color:var(--ink)}
+code{font:500 .92em/1.4 ui-monospace,"Cascadia Code",Consolas,monospace}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .5s var(--ease),background-color .4s var(--ease),box-shadow .4s var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn-main{background:#fff;color:#000}
+.btn-main:hover{background:#ececec;transform:translateY(-1px)}
+.btn-main svg{transition:transform .5s var(--ease)}
+.btn-main:hover svg{transform:translateY(2px)}
+.btn-ghost{box-shadow:inset 0 0 0 1px var(--line-2);color:var(--ink)}
+.btn-ghost:hover{background:rgba(255,255,255,.06)}
+.lnk{display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;font-size:15px}
+.lnk svg{transition:transform .5s var(--ease)}
+.lnk:hover svg{transform:translateX(4px)}
+
+/* navigation */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background-color .5s var(--ease),box-shadow .5s var(--ease),backdrop-filter .5s}
+.nav.solid{background:rgba(0,0,0,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);box-shadow:0 1px 0 var(--line)}
+.nav-in{display:flex;align-items:center;gap:28px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font:600 16px/1 var(--display);letter-spacing:-.02em}
+.brand svg{width:26px;height:26px}
+.brand b{font-weight:700}
+.nav-links{display:flex;gap:4px;margin-left:8px}
+.nav-links a{font-size:14px;color:var(--ink-2);padding:8px 10px;border-radius:999px;transition:color .3s,background-color .3s}
+.nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+.nav-links a[aria-current="true"]{color:var(--ink)}
+.nav-cta{margin-left:auto;display:flex;gap:8px;align-items:center}
+.nav-cta .btn{height:36px;font-size:14px;padding:0 14px}
+.burger{display:none;width:40px;height:40px;border-radius:999px;position:relative;box-shadow:inset 0 0 0 1px var(--line-2)}
+.burger i{position:absolute;left:12px;right:12px;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .6s var(--ease),top .6s var(--ease)}
+.burger i:first-child{top:16px}.burger i:last-child{top:23px}
+.menu-open .burger i:first-child{top:19.5px;transform:rotate(45deg)}
+.menu-open .burger i:last-child{top:19.5px;transform:rotate(-45deg)}
+.sheet{position:fixed;inset:64px 0 0 0;z-index:49;background:rgba(0,0,0,.86);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);padding:24px var(--pad);display:flex;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.menu-open .sheet{opacity:1;visibility:visible}
+.sheet a{font:540 30px/1.2 var(--display);letter-spacing:-.03em;padding:10px 0;border-bottom:1px solid var(--line);transform:translateY(24px);opacity:0;transition:transform .7s var(--ease),opacity .7s var(--ease)}
+.menu-open .sheet a{transform:none;opacity:1}
+.sheet a:nth-child(2){transition-delay:.04s}.sheet a:nth-child(3){transition-delay:.08s}.sheet a:nth-child(4){transition-delay:.12s}.sheet a:nth-child(5){transition-delay:.16s}.sheet a:nth-child(6){transition-delay:.2s}.sheet a:nth-child(7){transition-delay:.24s}
+.sheet a.btn{margin-top:24px;align-self:flex-start;font:600 15px/1 var(--ui);letter-spacing:0;padding:0 18px;border:0}
+
+/* héros */
+.hero{position:relative;padding:148px 0 0}
+.hero-glow{position:absolute;inset:0 0 auto 0;height:1100px;pointer-events:none;overflow:hidden;z-index:0}
+.hero-glow i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.38;transition:background-color 1.2s var(--ease)}
+.hero-glow i:nth-child(1){width:620px;height:520px;left:-160px;top:380px;background:var(--acc)}
+.hero-glow i:nth-child(2){width:560px;height:520px;right:-140px;top:300px;background:var(--acc-3)}
+.hero-glow i:nth-child(3){width:420px;height:300px;left:40%;top:620px;background:var(--acc-2);opacity:.22}
+.hero .wrap{position:relative;z-index:1}
+.hero-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.h1{font-size:clamp(40px,6vw,72px);line-height:1;letter-spacing:-.045em;max-width:15ch}
+.h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.h1 .ln span{display:block}
+.hero-sub{margin-top:24px;max-width:600px;font-size:18px;line-height:28px;color:var(--ink-2)}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-act{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.bridges{display:flex;flex-direction:column;gap:12px;align-items:flex-end;padding-bottom:6px}
+.bridges small{font-size:13px;color:var(--ink-2)}
+.bridges ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:330px}
+.chip{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px 0 10px;border-radius:999px;background:rgba(8,8,10,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--line-2);font-size:13px;color:var(--ink);transition:background-color .4s var(--ease),color .4s}
+.chip:hover{background:rgba(30,30,34,.8)}
+.chip img,.chip svg{width:15px;height:15px;filter:invert(1);opacity:.85}
+.chip svg{filter:none}
+
+/* fenêtre démo */
+.stage{margin-top:64px;perspective:1800px}
+.win{position:relative;container-type:inline-size;border-radius:var(--r-lg);overflow:hidden;background:#07060a;aspect-ratio:16/10;box-shadow:0 0 0 1px var(--line-2),0 40px 120px -20px rgba(0,0,0,.9),0 30px 80px -40px var(--acc);transform-origin:50% 0;transform:rotateX(calc(var(--t,0)*16deg)) scale(calc(1 - var(--t,0)*.06));will-change:transform;transition:box-shadow 1.2s var(--ease)}
+.win img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s var(--ease),transform 1.6s var(--ease);transform:scale(1.015)}
+.win img.on{opacity:1;transform:none}
+.cursor{position:absolute;left:0;top:0;z-index:3;width:22px;height:22px;transform:translate(calc(var(--cx,60)*1cqw),calc(var(--cy,55)*.625cqw));transition:transform 1.1s var(--ease);pointer-events:none;filter:drop-shadow(0 4px 10px rgba(0,0,0,.6))}
+.cursor .tag{position:absolute;left:18px;top:18px;white-space:nowrap;font:600 12px/1 var(--ui);padding:6px 8px;border-radius:8px;background:var(--acc);color:#140904;transition:background-color 1s var(--ease)}
+.cursor.tap::after{content:"";position:absolute;left:-12px;top:-12px;width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 2px var(--acc-hi);animation:tap .7s var(--ease-out) forwards}
+@keyframes tap{from{transform:scale(.4);opacity:1}to{transform:scale(1.8);opacity:0}}
+.chapters{margin-top:20px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.chap{position:relative;text-align:left;padding:14px 14px 16px;border-radius:var(--r-md);background:rgba(255,255,255,.02);box-shadow:inset 0 0 0 1px var(--line);transition:background-color .4s var(--ease),box-shadow .4s var(--ease)}
+.chap:hover{background:rgba(255,255,255,.05)}
+.chap b{display:block;font-weight:600;font-size:14px;line-height:20px}
+.chap span{display:block;font-size:13px;line-height:18px;color:var(--mute);margin-top:2px}
+.chap[aria-selected="true"]{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--line-2)}
+.chap .bar{position:absolute;left:14px;right:14px;bottom:8px;height:2px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+.chap .bar i{position:absolute;inset:0;background:var(--ink);transform-origin:0 50%;transform:scaleX(0)}
+.chap[aria-selected="true"] .bar i{animation:fill var(--dur,5200ms) linear forwards}
+.paused .chap[aria-selected="true"] .bar i{animation-play-state:paused}
+@keyframes fill{to{transform:scaleX(1)}}
+
+/* garanties */
+.trio{margin-top:96px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.trio>div{padding:32px 32px 8px 0}
+.trio>div+div{padding-left:32px;border-left:1px solid var(--line)}
+.trio svg{width:22px;height:22px;color:var(--acc);margin-bottom:16px;transition:color 1s var(--ease)}
+.trio .t3{font:600 16px/24px var(--ui);letter-spacing:-.01em}
+.trio p{margin-top:6px;color:var(--mute);font-size:15px;line-height:22px}
+.trio code{color:var(--ink-2)}
+
+/* sections */
+section{position:relative}
+.sec{padding:160px 0 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:56px}
+.h2{font-size:clamp(34px,4.2vw,52px);line-height:1.04;max-width:18ch}
+.lede{margin-top:16px;max-width:560px;color:var(--ink-2);font-size:18px;line-height:28px}
+
+/* blocs fonctions */
+.feat{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:stretch;margin-top:24px}
+.feat.flip{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.feat.flip .copy{order:2}
+.copy{background:var(--s1);border-radius:var(--r-xl);box-shadow:inset 0 0 0 1px var(--line);padding:40px;display:flex;flex-direction:column}
+.copy .kick{display:flex;align-items:center;gap:10px;color:var(--mute);font-size:14px;margin-bottom:24px}
+.copy .kick img{width:28px;height:28px;border-radius:8px}
+.copy h3{font-size:30px;line-height:36px;letter-spacing:-.03em;max-width:16ch}
+.copy>p{margin-top:16px;color:var(--ink-2);font-size:16px;line-height:26px}
+.copy ul{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+.copy li{display:grid;grid-template-columns:20px 1fr;gap:12px;font-size:15px;line-height:22px;color:var(--ink-2)}
+.copy li svg{width:18px;height:18px;margin-top:2px;color:var(--acc);transition:color 1s var(--ease)}
+.copy li b{color:var(--ink);font-weight:600}
+.copy .lnk{margin-top:auto;padding-top:32px}
+.shot{position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line);min-height:520px;isolation:isolate}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateY(var(--py,0)) scale(1.06);transition:transform .2s linear}
+.shot.contain{display:grid;place-items:center;padding:48px}
+.shot.contain img{position:relative;inset:auto;width:min(100%,540px);height:auto;border-radius:var(--r-lg);box-shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 1px var(--line-2);transform:translateY(var(--py,0))}
+.shot .bgimg,.shot.contain .bgimg{position:absolute;max-width:none;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(36px) saturate(1.3) brightness(.55);transform:none}
+.shot figcaption{position:absolute;left:16px;bottom:16px;z-index:2;font-size:13px;color:var(--ink);background:rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 11px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line-2)}
+.menus{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin-top:24px;border-top:1px solid var(--line)}
+.menus div{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:20px}
+.menus b{display:block;font-weight:600;color:var(--ink)}
+.menus span{color:var(--mute)}
+.flow{counter-reset:f;list-style:none;margin:24px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.flow li{counter-increment:f;display:grid;grid-template-columns:32px 1fr;gap:8px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:22px;color:var(--ink-2)}
+.flow li::before{content:counter(f);font:600 13px/22px var(--ui);color:var(--acc);transition:color 1s var(--ease)}
+.keys{display:flex;gap:6px;align-items:center;margin-top:24px;color:var(--mute);font-size:14px}
+
+/* manifeste */
+.manifest{padding:200px 0 40px}
+.manifest p{font:540 clamp(32px,4.6vw,60px)/1.08 var(--display);letter-spacing:-.04em;max-width:20ch;text-wrap:balance}
+.manifest .w{color:rgba(246,245,243,.22);transition:color .7s var(--ease)}
+.manifest .w.on{color:var(--ink)}
+.manifest .by{margin-top:32px;color:var(--mute);font-size:15px}
+
+/* palettes */
+.pal-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;align-items:stretch}
+.pal-side{display:flex;flex-direction:column;gap:8px}
+.swatch{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:center;text-align:left;padding:14px;border-radius:var(--r-lg);background:var(--s1);box-shadow:inset 0 0 0 1px var(--line);transition:background-color .4s var(--ease),box-shadow .4s var(--ease),transform .5s var(--ease)}
+.swatch:hover{background:var(--s2)}
+.swatch:active{transform:scale(.99)}
+.swatch[aria-pressed="true"]{background:var(--s2);box-shadow:inset 0 0 0 1px var(--line-2),0 0 0 1px var(--acc)}
+.swatch i{width:48px;height:48px;border-radius:12px}
+.swatch b{display:block;font-weight:600;font-size:16px}
+.swatch span{color:var(--mute);font-size:14px}
+.sw-braise i{background:linear-gradient(135deg,#ffd08a,#ff8a2b 45%,#ff3d2e)}
+.sw-aube i{background:linear-gradient(135deg,#ffd8e4,#ff7fa8 45%,#36cfe0)}
+.sw-nuit i{background:linear-gradient(135deg,#dcd6ff,#9a8cff 45%,#3a39a8)}
+.toggles{margin-top:16px;background:var(--s1);border-radius:var(--r-lg);box-shadow:inset 0 0 0 1px var(--line);padding:8px 20px}
+.toggles div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:20px}
+.toggles div:last-child{border:0}
+.toggles b{font-weight:600;display:block}
+.toggles span{color:var(--mute)}
+.toggles em{font-style:normal;flex:none;align-self:center;width:34px;height:20px;border-radius:99px;background:var(--acc);position:relative;transition:background-color 1s var(--ease)}
+.toggles em::after{content:"";position:absolute;right:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff}
+.pal-view{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:16/10;box-shadow:0 0 0 1px var(--line-2),0 40px 100px -40px var(--acc);transition:box-shadow 1.2s var(--ease)}
+.pal-view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity 1s var(--ease),transform 1.4s var(--ease)}
+.pal-view img.on{opacity:1;transform:none}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.card{position:relative;border-radius:var(--r-xl);background:var(--s1);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .5s var(--ease),background-color .5s var(--ease)}
+.card:hover{box-shadow:inset 0 0 0 1px var(--line-2);background:#0f0f12}
+.card .pic{position:relative;flex:1;min-height:240px;overflow:hidden}
+.card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.card:hover .pic img{transform:scale(1.035)}
+.card .pic::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,var(--s1));pointer-events:none}
+.card .txt{padding:24px 28px 28px}
+.card h3{font:600 18px/26px var(--ui);letter-spacing:-.015em}
+.card p{margin-top:6px;color:var(--mute);font-size:15px;line-height:22px}
+.c-places{grid-column:span 4}.c-plugins{grid-column:span 2}
+.c-fil,.c-outils,.c-mcp{grid-column:span 2}
+.c-bar{grid-column:span 3}.c-splash{grid-column:span 3}
+.c-places .pic{min-height:360px}
+.c-places .pic img{object-position:100% 30%}
+.c-plugins .pic img,.c-fil .pic img,.c-outils .pic img{object-position:50% 12%}
+.c-bar .pic{min-height:180px;display:grid;place-items:center;padding:24px}
+.c-bar .pic img{position:relative;height:auto;inset:auto;border-radius:12px;box-shadow:0 0 0 1px var(--line-2)}
+.c-bar .pic::after{display:none}
+.bars{display:flex!important;flex-direction:column;align-items:flex-start;gap:12px}
+.bars img{max-width:100%;height:auto!important;width:auto!important;max-height:56px;transition:transform .8s var(--ease)!important}
+.bars img:nth-child(2){align-self:center}.bars img:nth-child(3){align-self:flex-end}
+.card:hover .bars img{transform:none}
+.mcp{padding:28px;display:flex;flex-direction:column;gap:16px;flex:1}
+.term{border-radius:var(--r-md);background:#050506;box-shadow:inset 0 0 0 1px var(--line);padding:14px 14px 14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.term code{color:var(--ink);font-size:14px;overflow-wrap:anywhere}
+.copybtn{flex:none;height:32px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:inset 0 0 0 1px var(--line-2);transition:background-color .3s}
+.copybtn:hover{background:rgba(255,255,255,.08)}
+.tools{display:grid;gap:8px}
+.tools div{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:10px 12px;border-radius:var(--r-sm);background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px var(--line)}
+.tools code{color:var(--ink)}
+.tools span{color:var(--mute);text-align:right}
+.facts{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);border-radius:var(--r-xl);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.facts div{padding:28px;background:var(--s1)}
+.facts div+div{box-shadow:-1px 0 0 var(--line)}
+.facts strong{display:block;font:540 48px/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.facts span{display:block;margin-top:10px;color:var(--mute);font-size:14px;line-height:20px}
+
+/* installation */
+.inst{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px}
+.inst .shot{min-height:0;aspect-ratio:1280/950}
+.inst .shot img{object-position:50% 50%}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:8px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;padding:18px 20px;border-radius:var(--r-lg);background:var(--s1);box-shadow:inset 0 0 0 1px var(--line)}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:600 13px/1 var(--ui);background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--line-2)}
+.steps b{display:block;font-weight:600;font-size:16px;line-height:24px}
+.steps span{color:var(--mute);font-size:14px;line-height:21px}
+.log{margin-top:24px;border-radius:var(--r-lg);background:#050506;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.log-top{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--mute)}
+.log-top i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc);transition:background-color 1s}
+.log pre{margin:0;padding:16px;min-height:252px;font:500 13px/1.75 ui-monospace,"Cascadia Code",Consolas,monospace;color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere}
+.log pre b{color:var(--acc-hi);font-weight:600}
+.log .caret{display:inline-block;width:7px;height:14px;background:var(--ink);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.req{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:24px}
+.req div{padding:16px 18px;border-radius:var(--r-md);background:var(--s1);box-shadow:inset 0 0 0 1px var(--line);font-size:14px;line-height:20px}
+.req b{display:block;font-weight:600}
+.req span{color:var(--mute)}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px}
+.faq-list{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding:22px 0;font-weight:600;font-size:17px;line-height:26px}
+summary::-webkit-details-marker{display:none}
+summary svg{flex:none;width:18px;height:18px;color:var(--mute);transition:transform .6s var(--ease)}
+details[open] summary svg{transform:rotate(45deg)}
+summary:hover{color:#fff}
+details p{padding:0 48px 24px 0;color:var(--ink-2);font-size:16px;line-height:26px}
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  details::details-content{height:0;overflow:clip;transition:height .6s var(--ease),content-visibility .6s allow-discrete}
+  details[open]::details-content{height:auto}
+}
+
+/* fin */
+.final{padding:200px 0 160px;text-align:center;position:relative;overflow:hidden}
+.final .h2{margin:0 auto;max-width:16ch;font-size:clamp(38px,5.4vw,68px)}
+.final p{margin:20px auto 0;max-width:520px;color:var(--ink-2);font-size:18px;line-height:28px}
+.final .hero-act{justify-content:center}
+.final small{display:block;margin-top:20px;color:var(--mute);font-size:13px}
+.final-glow{position:absolute;left:50%;bottom:-360px;width:900px;height:600px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,var(--acc),transparent);opacity:.28;filter:blur(40px);pointer-events:none;transition:background 1.2s}
+footer{border-top:1px solid var(--line);padding:48px 0 40px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:32px}
+.foot p{margin-top:12px;color:var(--mute);font-size:14px;line-height:21px;max-width:340px}
+.foot .fh{margin:0 0 12px;font:600 13px/20px var(--ui);letter-spacing:0;color:var(--ink)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{color:var(--mute);font-size:14px;transition:color .3s}
+.foot a:hover{color:var(--ink)}
+.legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--mute);font-size:13px}
+.legal a{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}.legal a:hover{color:var(--ink)}
+.status{display:inline-flex;align-items:center;gap:8px}
+.status i{width:7px;height:7px;border-radius:50%;background:#3ddc84}
+
+/* apparition au défilement */
+.js .rv{opacity:0;transform:translateY(40px);filter:blur(8px);transition:opacity 1s var(--ease),transform 1.1s var(--ease),filter 1s var(--ease)}
+.js .rv.in{opacity:1;transform:none;filter:none}
+.js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}
+.js .h1 .ln span{transform:translateY(105%);transition:transform 1.2s var(--ease)}
+.js.ready .h1 .ln span{transform:none}
+.js.ready .h1 .ln:nth-child(2) span{transition-delay:.08s}
+.js.ready .h1 .ln:nth-child(3) span{transition-delay:.16s}
+.js .hero-fade{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease) .35s,transform 1s var(--ease) .35s}
+.js.ready .hero-fade{opacity:1;transform:none}
+.js .stage{opacity:0;transform:translateY(60px);transition:opacity 1.2s var(--ease) .5s,transform 1.4s var(--ease) .5s}
+.js.ready .stage{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .rv,.js .hero-fade,.js .stage,.js .h1 .ln span{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  .win{transform:none!important}
+  .shot img{transform:none!important}
+  .cursor{display:none}
+  .chap .bar{display:none}
+  .manifest .w{color:var(--ink)}
+}
+
+/* responsive */
+@media (max-width:1080px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-cta .btn-ghost{display:none}
+  .hero-top{grid-template-columns:1fr}
+  .bridges{align-items:flex-start}
+  .bridges ul{justify-content:flex-start;max-width:none}
+  .chapters{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .feat,.feat.flip{grid-template-columns:1fr}
+  .feat.flip .copy{order:0}
+  .shot{min-height:440px}
+  .pal-grid,.inst,.faq{grid-template-columns:1fr}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c-places,.c-bar,.c-splash{grid-column:span 2}
+  .c-plugins,.c-fil,.c-outils,.c-mcp{grid-column:span 1}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .facts div:nth-child(3){box-shadow:0 -1px 0 var(--line)}
+  .facts div:nth-child(4){box-shadow:-1px 0 0 var(--line),0 -1px 0 var(--line)}
+  .req{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .nav-cta .btn-main{display:none}
+  .hero{padding-top:112px}
+  .hero-sub{font-size:17px;line-height:26px}
+  .stage{margin-top:40px}
+  .win{border-radius:14px}
+  .chapters{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:16px calc(-1*var(--pad)) 0;padding:0 var(--pad);scrollbar-width:none}
+  .chapters::-webkit-scrollbar{display:none}
+  .chap{flex:0 0 46%;scroll-snap-align:start}
+  .trio{grid-template-columns:1fr;margin-top:64px}
+  .trio>div,.trio>div+div{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .sec{padding-top:112px}
+  .head{flex-direction:column;align-items:flex-start;margin-bottom:32px}
+  .copy{padding:28px 24px}
+  .copy h3{font-size:24px;line-height:32px}
+  .shot{min-height:380px;border-radius:var(--r-lg)}
+  .shot.contain{padding:20px}
+  .menus{grid-template-columns:1fr}
+  .manifest{padding:140px 0 24px}
+  .bento{grid-template-columns:1fr}
+  .c-places,.c-plugins,.c-fil,.c-outils,.c-mcp,.c-bar,.c-splash{grid-column:span 1}
+  .c-places .pic{min-height:280px}
+  .facts strong{font-size:40px}
+  .facts div{padding:20px}
+  .req{grid-template-columns:1fr}
+  .final{padding:140px 0 120px}
+  .foot{grid-template-columns:1fr}
+  .legal{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 7.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4.5v12M6.5 11.5L12 17l5.5-5.5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5V6A1.5 1.5 0 0 0 14 4.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-open" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M7 6.8h.01M9.5 6.8h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-term" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 10l3 2.5L7 15M12.5 15.5h4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="logo" viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd08a"/><stop offset=".5" stop-color="#ff8a2b"/><stop offset="1" stop-color="#5b4bd6"/></linearGradient></defs><rect x="1.5" y="1.5" width="61" height="61" rx="18" fill="url(#lg)"/><rect x="16.5" y="13" width="9.5" height="38" rx="2.4" fill="#fff4e2"/><path d="M26 13h8a9.5 9.5 0 0 1 0 19h-8z" fill="#fff4e2"/><path d="M26 32h10a9.5 9.5 0 0 1 0 19H26z" fill="#a79cff"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Better GrokBot, haut de page"><svg aria-hidden="true"><use href="#logo"/></svg><span>Better<b>GrokBot</b></span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#chassis">Châssis</a><a href="#repond">Répond</a><a href="#pont">Pont</a><a href="#quotas">Quotas</a><a href="#palettes">Palettes</a><a href="#installer">Installer</a><a href="#faq">Questions</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#installer">Prérequis</a>
+      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest">Télécharger</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Ouvrir le menu"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<div class="sheet" id="sheet" aria-label="Menu">
+  <a href="#chassis">Châssis</a><a href="#repond">Répond</a><a href="#pont">Pont</a><a href="#quotas">Quotas</a><a href="#palettes">Palettes</a><a href="#installer">Installer</a><a href="#faq">Questions</a>
+  <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+</div>
+
+<main id="contenu">
+<section class="hero" id="top" aria-labelledby="titre">
+  <div class="hero-glow" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <h1 class="h1" id="titre"><span class="ln"><span>Grok Bot,</span></span><span class="ln"><span>avec tout ce qui</span></span><span class="ln"><span>lui manquait.</span></span></h1>
+        <p class="hero-sub hero-fade">Better GrokBot est une <strong>copie privée</strong> de Grok Bot. Elle ajoute un rail de navigation, une palette <kbd>Ctrl</kbd> <kbd>K</kbd>, la barre Répond pour confier un message à Cursor, Claude ou Codex, les quotas en direct et trois palettes. L’installation d’origine n’est jamais modifiée.</p>
+        <div class="hero-act hero-fade">
+          <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+          <a class="btn btn-ghost" href="#chassis">Voir le châssis</a>
+        </div>
+      </div>
+      <div class="bridges hero-fade">
+        <small>Ponts vers les CLI déjà installées</small>
+        <ul>
+          <li class="chip"><img src="media/logos/cursor.svg" alt="" width="15" height="15">Cursor</li>
+          <li class="chip"><img src="media/logos/claude.svg" alt="" width="15" height="15">Claude</li>
+          <li class="chip"><svg aria-hidden="true"><use href="#i-term"/></svg>Codex</li>
+          <li class="chip"><img src="media/logos/googlegemini.svg" alt="" width="15" height="15">Gemini</li>
+          <li class="chip"><img src="media/logos/githubcopilot.svg" alt="" width="15" height="15">Copilot</li>
+          <li class="chip"><img src="media/logos/opencode.svg" alt="" width="15" height="15">OpenCode</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="win" id="win" role="img" aria-label="Captures réelles de Better GrokBot, qui défilent chapitre par chapitre">
+        <img class="on" src="media/app-splash.webp" alt="" width="2000" height="1250" data-k="splash">
+        <img src="media/app-braise.webp" alt="" width="2000" height="1250" data-k="chassis">
+        <img src="media/app-palette.webp" alt="" width="2000" height="1250" data-k="palette" loading="lazy">
+        <img src="media/app-pont.webp" alt="" width="2000" height="1250" data-k="pont" loading="lazy">
+        <img src="media/app-quotas.webp" alt="" width="2000" height="1250" data-k="quotas" loading="lazy">
+        <img src="media/app-repond.webp" alt="" width="2000" height="1250" data-k="repond" loading="lazy">
+        <img src="media/app-aube.webp" alt="" width="2000" height="1250" data-k="themes" loading="lazy">
+        <div class="cursor" id="cursor" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 2.5l15 8.2-6.6 1.6-2.9 6.4z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          <span class="tag">Vous</span>
+        </div>
+      </div>
+      <div class="chapters" role="tablist" aria-label="Chapitres de la démonstration" id="chapters">
+        <button class="chap" role="tab" data-k="chassis" data-x="60" data-y="45" aria-selected="false"><b>Le châssis</b><span>Barre, rail, décor</span><span class="bar"><i></i></span></button>
+        <button class="chap" role="tab" data-k="palette" data-x="50.1" data-y="4.2" aria-selected="false"><b>Palette</b><span>Tout au clavier</span><span class="bar"><i></i></span></button>
+        <button class="chap" role="tab" data-k="pont" data-x="4.3" data-y="30.1" aria-selected="false"><b>Pont</b><span>Routes et CLI</span><span class="bar"><i></i></span></button>
+        <button class="chap" role="tab" data-k="quotas" data-x="4.3" data-y="38.3" aria-selected="false"><b>Quotas</b><span>Lus en direct</span><span class="bar"><i></i></span></button>
+        <button class="chap" role="tab" data-k="repond" data-x="52.6" data-y="88.8" aria-selected="false"><b>Répond</b><span>Un autre modèle</span><span class="bar"><i></i></span></button>
+        <button class="chap" role="tab" data-k="themes" data-x="4.3" data-y="85.2" aria-selected="false"><b>Palettes</b><span>Braise, Aube, Nuit</span><span class="bar"><i></i></span></button>
+      </div>
+    </div>
+
+    <div class="trio">
+      <div class="rv"><svg aria-hidden="true"><use href="#i-eye"/></svg><h2 class="t3">Lire l’origine</h2><p><code>Grok Bot.exe</code> et <code>app.asar</code> sont lus dans <code>Programs\Grok Bot</code>. Rien n’y est écrit.</p></div>
+      <div class="rv d1"><svg aria-hidden="true"><use href="#i-copy"/></svg><h2 class="t3">Écrire la copie</h2><p>La copie s’installe dans <code>Local\GrokBot-inprocess</code>. L’archive y est reconstruite avec le châssis.</p></div>
+      <div class="rv d2"><svg aria-hidden="true"><use href="#i-open"/></svg><h2 class="t3">Ouvrir la copie</h2><p>La fenêtre qui s’ouvre est Better GrokBot. Votre Grok Bot d’origine reste là, tel quel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="chassis" aria-labelledby="t-chassis">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <h2 class="h2" id="t-chassis">Un châssis autour de la conversation.</h2>
+        <p class="lede">Même Grok, même fil, mêmes agents. Le châssis s’installe autour : une barre de titre propre, un rail illustré à gauche et des panneaux qui glissent depuis la droite.</p>
+      </div>
+      <a class="lnk" href="#installer">Installer la copie <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="feat">
+      <div class="copy rv">
+        <div class="kick"><img src="media/rail.webp" alt="" width="28" height="28" style="object-fit:cover;object-position:50% 14%">Rail et panneaux</div>
+        <h3>Huit entrées, un clic chacune.</h3>
+        <p>Le rail reste visible pendant que vous écrivez. Chaque entrée ouvre son panneau sans quitter le fil, et Échap le referme.</p>
+        <div class="menus">
+          <div><b>Agents</b><span>Vos agents, leurs fils, un clic.</span></div>
+          <div><b>Fil</b><span>Reprendre ou partager le fil.</span></div>
+          <div><b>Pont</b><span>Brancher d’autres IA sur Grok.</span></div>
+          <div><b>Quotas</b><span>Ce qu’il reste, en direct.</span></div>
+          <div><b>Outils</b><span>Les gestes rapides de Better.</span></div>
+          <div><b>Plugins</b><span>Afficher ou masquer une entrée.</span></div>
+          <div><b>Thèmes</b><span>Couleurs, grain, décor, mouvement.</span></div>
+          <div><b>Places</b><span>Tailles du rail et du panneau.</span></div>
+        </div>
+        <a class="lnk" href="#palettes">Changer de palette <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <figure class="shot rv d1" style="margin:0"><img src="media/app-agents.webp" alt="Better GrokBot avec le panneau Agents ouvert : recherche, conversation en cours et liste des agents de la colonne Grok" width="2000" height="1250" loading="lazy" style="object-position:100% 0" data-par><figcaption>Panneau Agents</figcaption></figure>
+    </div>
+
+    <div class="feat flip">
+      <div class="copy rv">
+        <div class="kick"><kbd>Ctrl</kbd><kbd>K</kbd>Palette de commandes</div>
+        <h3>Tout se trouve au clavier.</h3>
+        <p>La palette réunit les huit catégories, les trois palettes de couleurs et les gestes du fil. Tapez deux lettres, Entrée ouvre la bonne ligne.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Catégories</b> : Agents, Fil, Pont, Quotas, Outils, Plugins, Thèmes, Places.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Palettes</b> : Braise, Aube ou Nuit, appliquées tout de suite.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Fil</b> : reprendre la conversation ou la partager.</span></li>
+        </ul>
+        <div class="keys"><kbd>Ctrl</kbd><kbd>K</kbd> pour ouvrir, <kbd>Échap</kbd> pour fermer</div>
+      </div>
+      <figure class="shot contain rv d1" style="margin:0"><img class="bgimg" src="media/app-braise.webp" alt="" loading="lazy" width="2000" height="1250"><img src="media/palette.webp" alt="La palette de commandes de Better GrokBot avec les catégories, les palettes de couleurs et les gestes du fil" width="1480" height="1316" loading="lazy" data-par></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="repond" aria-labelledby="t-repond">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <h2 class="h2" id="t-repond">Répondre avec un autre modèle, sans quitter Grok.</h2>
+        <p class="lede">La barre Répond se pose juste au-dessus du champ de saisie. Choisissez Cursor, Claude ou Codex : votre agent Grok garde la parole et confie le travail au modèle choisi.</p>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="copy rv">
+        <div class="kick">La barre Répond</div>
+        <h3>Ce qui se passe quand vous envoyez.</h3>
+        <ol class="flow">
+          <li><span>Vous choisissez un modèle dans le menu, qui s’ouvre vers le haut.</span></li>
+          <li><span>Une consigne est glissée devant votre message : Grok reste l’agent qui vous parle.</span></li>
+          <li><span>Grok appelle l’outil <code>ask_external_ai</code> du connecteur Better GrokBot.</span></li>
+          <li><span>Le modèle choisi travaille, puis Grok vous montre ce qui revient.</span></li>
+        </ol>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Déplaçable</b> au grip, et réductible en une pastille de 36 pixels.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Honnête</b> : seuls les ponts dont la CLI est vraiment là apparaissent.</span></li>
+        </ul>
+      </div>
+      <figure class="shot rv d1" style="margin:0"><img src="media/app-repond.webp" alt="Le menu de la barre Répond ouvert au-dessus du champ de saisie, avec Grok, Cursor, Claude et Codex" width="2000" height="1250" loading="lazy" style="object-position:58% 100%" data-par><figcaption>Menu Répond</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pont" aria-labelledby="t-pont">
+  <div class="wrap">
+    <div class="feat flip">
+      <div class="copy rv">
+        <div class="kick">Pont</div>
+        <h3 id="t-pont">Brancher d’autres IA sur Grok.</h3>
+        <p>Le panneau Pont montre l’état du serveur local, les fournisseurs trouvés sur ce PC et le modèle assigné à chaque agent.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Routes par agent</b> : un agent, un fournisseur, un modèle. L’agent l’appelle via <code>route_for_agent</code>.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Lier une CLI</b> : Better cherche le programme sur ce PC et le rend visible au pont.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Clés</b> : une clé collée reste chiffrée, seuls ses quatre derniers caractères s’affichent.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Verrière</b> : la pastille de la barre indique si elle répond sur le port 47421 ou 7421.</span></li>
+        </ul>
+        <a class="lnk" href="#mcp">Ajouter le connecteur <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <figure class="shot rv d1" style="margin:0"><img src="media/panel-pont.webp" alt="Panneau Pont : MCP Better en ligne, commande du connecteur, modèle assigné, routes et fournisseurs" width="1096" height="1700" loading="lazy" style="object-position:50% 0" data-par><figcaption>Panneau Pont</figcaption></figure>
+    </div>
+
+    <div class="feat" id="quotas">
+      <div class="copy rv">
+        <div class="kick">Quotas</div>
+        <h3>Ce qu’il reste, en direct.</h3>
+        <p>Le pourcentage Grok est lu dans les données que le compte envoie déjà, sans ouvrir la facturation. La date de réinitialisation suit.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Grok d’abord</b>, avec le nom de l’offre quand le compte le donne.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Puis les ponts liés</b>, chacun avec sa jauge quand sa CLI publie un chiffre.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Relire le compteur</b> en un clic, sans recharger la fenêtre.</span></li>
+        </ul>
+      </div>
+      <figure class="shot rv d1" style="margin:0"><img src="media/panel-quotas.webp" alt="Panneau Quotas : jauge Grok avec son pourcentage et sa réinitialisation, puis la jauge Cursor" width="1096" height="1700" loading="lazy" style="object-position:50% 0" data-par><figcaption>Panneau Quotas</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="manifest" aria-label="En une phrase">
+  <div class="wrap">
+    <p id="manifest">Grok reste l’agent qui vous parle. Les autres IA viennent l’aider, seulement quand vous le décidez.</p>
+    <div class="by rv">Le principe de la barre Répond et du Pont.</div>
+  </div>
+</section>
+
+<section class="sec" id="palettes" aria-labelledby="t-pal">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <h2 class="h2" id="t-pal">Trois palettes, un seul geste.</h2>
+        <p class="lede">Choisissez une palette ici : la capture change, et cette page aussi. Dans l’application, le grain, le décor et le mouvement se règlent à part.</p>
+      </div>
+    </div>
+    <div class="pal-grid">
+      <div class="pal-side rv">
+        <button class="swatch sw-braise" type="button" data-pal="braise" aria-pressed="true"><i></i><span><b>Braise</b><span>Mandarine, vermillon, indigo.</span></span></button>
+        <button class="swatch sw-aube" type="button" data-pal="aube" aria-pressed="false"><i></i><span><b>Aube</b><span>Rose, pêche et cyan rétro.</span></span></button>
+        <button class="swatch sw-nuit" type="button" data-pal="nuit" aria-pressed="false"><i></i><span><b>Nuit</b><span>Pervenche, orange, encre.</span></span></button>
+        <div class="toggles">
+          <div><span><b>Grain</b><span>Texture fine sur le fond et le verre.</span></span><em aria-hidden="true"></em></div>
+          <div><span><b>Décor géométrique</b><span>Sphères, arcs et blocs derrière la fenêtre.</span></span><em aria-hidden="true"></em></div>
+          <div><span><b>Animations</b><span>Mouvement du châssis et des panneaux.</span></span><em aria-hidden="true"></em></div>
+          <div><span><b>CSS du cadre</b><span>Vos propres règles, sur <code>#better-grokbot-root</code>.</span></span></div>
+        </div>
+      </div>
+      <div class="pal-view rv d1" aria-live="polite">
+        <img class="on" src="media/app-braise.webp" alt="Better GrokBot en palette Braise" width="2000" height="1250" loading="lazy" data-pal="braise">
+        <img src="media/app-aube.webp" alt="Better GrokBot en palette Aube" width="2000" height="1250" loading="lazy" data-pal="aube">
+        <img src="media/app-nuit.webp" alt="Better GrokBot en palette Nuit" width="2000" height="1250" loading="lazy" data-pal="nuit">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reste" aria-labelledby="t-reste">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <h2 class="h2" id="t-reste">Le reste du châssis, déjà là.</h2>
+        <p class="lede">Disposition, plugins, fil, gestes rapides, connecteur. Chaque carte montre l’écran réel.</p>
+      </div>
+    </div>
+    <div class="bento">
+      <article class="card c-places rv">
+        <div class="pic"><img src="media/app-rail-droite.webp" alt="Better GrokBot avec le rail placé à droite" width="2000" height="1250" loading="lazy"></div>
+        <div class="txt"><h3>Places : à gauche ou à droite, compact ou confort</h3><p>Compact : rail de 92 px et panneau de 332 px. Confort : 108 px et 388 px. Glissez une entrée du rail pour changer son ordre.</p></div>
+      </article>
+      <article class="card c-plugins rv d1">
+        <div class="pic"><img src="media/panel-plugins.webp" alt="Panneau Plugins" width="1096" height="1700" loading="lazy"></div>
+        <div class="txt"><h3>Plugins</h3><p>Affichez ou masquez une entrée du rail. Un plugin peut aussi viser le CSS du centre, là où se tient la conversation.</p></div>
+      </article>
+      <article class="card c-fil rv">
+        <div class="pic"><img src="media/panel-fil.webp" alt="Panneau Fil" width="1096" height="1700" loading="lazy"></div>
+        <div class="txt"><h3>Fil</h3><p>Reprendre le fil place le curseur dans le composeur. Partager ouvre le partage de Grok, sinon copie le nom de l’agent.</p></div>
+      </article>
+      <article class="card c-outils rv d1">
+        <div class="pic"><img src="media/panel-outils.webp" alt="Panneau Outils" width="1096" height="1700" loading="lazy"></div>
+        <div class="txt"><h3>Outils</h3><p>Six gestes rapides : fournisseurs, routage, bac à sable, Verrière, quota et colonne des agents.</p></div>
+      </article>
+      <article class="card c-mcp rv d2" id="mcp">
+        <div class="mcp">
+          <h3>Connecteur MCP</h3>
+          <p>Pour que vos agents Grok voient les outils de Better, ajoutez cette commande dans Connect apps.</p>
+          <div class="term"><code id="cmd">BetterGrokBot.exe -mcp</code><button class="copybtn" type="button" id="copy" data-cmd="BetterGrokBot.exe -mcp">Copier</button></div>
+          <div class="tools">
+            <div><code>ask_external_ai</code><span>confie une demande au modèle routé</span></div>
+            <div><code>sandbox_list</code><span>liste le bac à sable</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="card c-bar rv">
+        <div class="pic bars"><img src="media/bar-brand.webp" alt="Logo Better GrokBot dans la barre de titre" width="468" height="152" loading="lazy"><img src="media/bar-search.webp" alt="Recherche Ctrl K dans la barre de titre" width="1000" height="152" loading="lazy"><img src="media/bar-pill.webp" alt="Pastille Pont et Verrière et boutons de fenêtre" width="608" height="152" loading="lazy"></div>
+        <div class="txt"><h3>Une barre de titre propre</h3><p>Logo, recherche <kbd>Ctrl</kbd> <kbd>K</kbd>, pastille d’état du pont et boutons de fenêtre. La barre native de Windows disparaît.</p></div>
+      </article>
+      <article class="card c-splash rv d1">
+        <div class="pic"><img src="media/app-splash.webp" alt="Écran de lancement de Better GrokBot : Votre Grok, autrement" width="2000" height="1250" loading="lazy"></div>
+        <div class="txt"><h3>Un lancement soigné</h3><p>Formes, logo et signature à l’ouverture. Les animations se coupent dans Thèmes, et le réglage de réduction des animations du système est respecté.</p></div>
+      </article>
+    </div>
+    <div class="facts rv" id="facts">
+      <div><strong data-n="8">8</strong><span>entrées dans le rail</span></div>
+      <div><strong data-n="6">6</strong><span>CLI reconnues : Cursor, Claude, Codex, Gemini, Copilot, OpenCode</span></div>
+      <div><strong data-n="3">3</strong><span>palettes : Braise, Aube, Nuit</span></div>
+      <div><strong data-n="0">0</strong><span>fichier écrit dans <code>Programs\Grok Bot</code></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="installer" aria-labelledby="t-inst">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <h2 class="h2" id="t-inst">Installer la copie.</h2>
+        <p class="lede">Patch GrokBot trouve Grok Bot, prépare la copie et l’ouvre. Désinstaller retire la copie, jamais Grok Bot.</p>
+      </div>
+      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+    </div>
+    <div class="inst">
+      <div>
+        <figure class="shot rv" style="margin:0"><img src="media/installer.webp" alt="Fenêtre Patch GrokBot : dossier de Grok Bot détecté, boutons Détecter, Installer et Désinstaller, source trouvée et copie installée" width="1280" height="950" loading="lazy"></figure>
+        <div class="log rv" aria-label="Journal d’installation">
+          <div class="log-top"><i aria-hidden="true"></i>Journal de Patch GrokBot</div>
+          <pre id="log" data-lines="SOURCE C:\Users\vous\AppData\Local\Programs\Grok Bot|COPY binary tree|FUSE integrity off on the private copy|ICON exe|ELEMENTS shell|EXTRACT app.asar|PATCH IPC fenêtre (main + preload betterWindow)|HOOK renderer + shell|PACK app.asar|READY Local\GrokBot-inprocess"></pre>
+        </div>
+      </div>
+      <div>
+        <ol class="steps rv d1">
+          <li><span><b>Télécharger</b><span>Gardez l’exécutable à côté du dossier du patcher : il y cherche <code>build.mjs</code> en remontant les dossiers.</span></span></li>
+          <li><span><b>Détecter</b><span>Le dossier de Grok Bot est trouvé tout seul dans <code>Local\Programs</code>. Vous pouvez aussi l’indiquer.</span></span></li>
+          <li><span><b>Installer</b><span>La copie est écrite dans <code>Local\GrokBot-inprocess</code> avec le châssis. Le journal suit chaque étape.</span></span></li>
+          <li><span><b>Ouvrir</b><span>Lancez Better GrokBot. Ajoutez le connecteur MCP si vous voulez la barre Répond.</span></span></li>
+        </ol>
+        <div class="req rv d2" style="grid-template-columns:1fr 1fr">
+          <div><b>.NET 8</b><span>pour la fenêtre</span></div>
+          <div><b>WebView2</b><span>pour l’interface</span></div>
+          <div><b>Node</b><span>pour construire la copie</span></div>
+          <div><b>Windows</b><span>Grok Bot installé</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="t-faq">
+  <div class="wrap faq">
+    <div class="rv">
+      <h2 class="h2" id="t-faq">Questions fréquentes.</h2>
+      <p class="lede">Ce que fait la copie, et ce qu’elle ne fait pas.</p>
+    </div>
+    <div class="faq-list rv d1">
+      <details><summary>Est-ce que mon Grok Bot est modifié ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Non. Patch GrokBot lit <code>Programs\Grok Bot</code> sans y écrire. Tout ce qui change vit dans la copie, dans <code>Local\GrokBot-inprocess</code>.</p></details>
+      <details><summary>Faut-il une clé API pour Répond ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Pas pour les ponts en CLI : si Cursor, Claude, Codex, Gemini, Copilot ou OpenCode sont installés et connectés sur ce PC, Better s’en sert tels quels. Pour un fournisseur à clé, la clé collée reste chiffrée.</p></details>
+      <details><summary>Que se passe-t-il si une CLI manque ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Elle n’est pas proposée. Le panneau Pont l’affiche comme absente, avec un bouton pour la lier dès qu’elle est installée.</p></details>
+      <details><summary>À quoi sert le connecteur MCP ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Il donne à vos agents Grok les outils de Better, dont <code>ask_external_ai</code>. Sans lui, la barre Répond ne peut pas confier de travail à un autre modèle. La commande se copie depuis le panneau Pont.</p></details>
+      <details><summary>D’où viennent les quotas ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Le pourcentage Grok est lu dans les données que la session reçoit déjà. Pour les ponts liés, la jauge apparaît quand la CLI publie un chiffre, sinon la carte l’indique.</p></details>
+      <details><summary>Puis-je effacer l’historique d’un fil ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Non : Grok ne permet pas d’effacer l’historique dans le cloud, et Better ne le prétend pas. Reprendre le fil place simplement le curseur dans le composeur.</p></details>
+      <details><summary>Puis-je couper les animations ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Oui, dans Thèmes, avec Animations. Le grain et le décor géométrique se coupent séparément. Le réglage de réduction des animations de Windows est respecté.</p></details>
+      <details><summary>Comment désinstaller ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Ouvrez Patch GrokBot et cliquez sur Désinstaller. La copie est retirée. Grok Bot, lui, n’est pas touché.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="t-final">
+  <div class="final-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="h2 rv" id="t-final">Gardez Grok Bot. Ajoutez le châssis.</h2>
+    <p class="rv d1">Une copie privée, réversible en un clic, qui laisse l’original intact.</p>
+    <div class="hero-act rv d2">
+      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+      <a class="btn btn-ghost" href="#installer">Voir les prérequis</a>
+    </div>
+    <small class="rv d2">Windows, .NET 8, WebView2 et Node.</small>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="brand" href="#top"><svg aria-hidden="true"><use href="#logo"/></svg><span>Better<b>GrokBot</b></span></a><p>Better GrokBot est une copie privée. Grok Bot, dans Programs, n’est pas modifié.</p></div>
+      <div><h2 class="fh">Produit</h2><ul><li><a href="#chassis">Châssis</a></li><li><a href="#repond">Répond</a></li><li><a href="#pont">Pont</a></li><li><a href="#quotas">Quotas</a></li></ul></div>
+      <div><h2 class="fh">Réglages</h2><ul><li><a href="#palettes">Palettes</a></li><li><a href="#reste">Places et plugins</a></li><li><a href="#mcp">Connecteur MCP</a></li></ul></div>
+      <div><h2 class="fh">Installer</h2><ul><li><a href="https://github.com/Wantre/better-grokbot/releases/latest">Patch GrokBot.exe</a></li><li><a href="#installer">Prérequis</a></li><li><a href="#faq">Questions</a></li></ul></div>
+      <div><h2 class="fh">Projet</h2><ul><li><a href="https://github.com/Wantre/better-grokbot">Code sur GitHub</a></li><li><a href="https://github.com/Wantre/better-grokbot/releases">Versions</a></li><li><a href="https://github.com/Wantre">Par Wantre</a></li></ul></div>
+    </div>
+    <div class="legal"><span>Better GrokBot · par <a href="https://github.com/Wantre">Wantre</a></span><span class="status"><i aria-hidden="true"></i>Original intact, copie réversible</span></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  root.classList.add("js");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+  const still = () => reduce.matches;
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add("ready")));
+
+  /* navigation */
+  const nav = document.getElementById("nav");
+  const burger = nav.querySelector(".burger");
+  const sheet = document.getElementById("sheet");
+  const setMenu = (open) => {
+    document.body.classList.toggle("menu-open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    sheet.inert = !open;
+  };
+  sheet.inert = true;
+  burger.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+  sheet.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+  const links = [...document.querySelectorAll(".nav-links a")];
+  const spy = new IntersectionObserver((entries) => {
+    for (const en of entries) if (en.isIntersecting) links.forEach((a) => a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + en.target.id)));
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  ["chassis", "repond", "pont", "quotas", "palettes", "installer", "faq"].forEach((id) => spy.observe(document.getElementById(id)));
+
+  /* apparitions */
+  const io = new IntersectionObserver((entries) => {
+    for (const en of entries) if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  document.querySelectorAll(".rv").forEach((el) => io.observe(el));
+
+  /* défilement : barre, inclinaison du héros, parallaxe, manifeste (un seul écouteur, cadencé par rAF) */
+  const win = document.getElementById("win");
+  const pars = [...document.querySelectorAll("[data-par]")];
+  const visible = new Set();
+  const pio = new IntersectionObserver((entries) => entries.forEach((en) => en.isIntersecting ? visible.add(en.target) : visible.delete(en.target)));
+  pars.forEach((el) => pio.observe(el));
+  const manifest = document.getElementById("manifest");
+  manifest.innerHTML = manifest.textContent.split(/(\s+)/).map((w) => /\s/.test(w) ? w : '<span class="w">' + w + "</span>").join("");
+  const words = [...manifest.querySelectorAll(".w")];
+  let ticking = false;
+  const frame = () => {
+    ticking = false;
+    const y = scrollY, h = innerHeight;
+    nav.classList.toggle("solid", y > 12);
+    if (still()) { words.forEach((w) => w.classList.add("on")); return; }
+    const r = win.getBoundingClientRect();
+    if (r.bottom > 0) win.style.setProperty("--t", Math.max(0, Math.min(1, (r.top - 80) / (h * 0.7))).toFixed(3));
+    for (const el of visible) {
+      const b = el.parentElement.getBoundingClientRect();
+      const p = (b.top + b.height / 2 - h / 2) / h;
+      el.style.setProperty("--py", (p * -28).toFixed(1) + "px");
+    }
+    const m = manifest.getBoundingClientRect();
+    if (m.top < h && m.bottom > 0) {
+      const line = h * 0.72;
+      const done = Math.max(0, Math.min(1, (line - m.top) / (m.height + h * 0.25)));
+      const n = Math.round(done * words.length);
+      words.forEach((w, i) => w.classList.toggle("on", i < n));
+    }
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+  frame();
+
+  /* démo du héros */
+  const imgs = [...win.querySelectorAll("img")];
+  const tabs = [...document.querySelectorAll(".chap")];
+  const cursor = document.getElementById("cursor");
+  const chaptersEl = document.getElementById("chapters");
+  const DUR = 5200;
+  let idx = -1, timer = 0, inView = true, hovering = false;
+  const show = (k) => imgs.forEach((im) => im.classList.toggle("on", im.dataset.k === k));
+  const go = (i, user) => {
+    clearTimeout(timer);
+    idx = (i + tabs.length) % tabs.length;
+    const tab = tabs[idx];
+    tabs.forEach((t) => { t.setAttribute("aria-selected", String(t === tab)); t.tabIndex = t === tab ? 0 : -1; });
+    const bar = tab.querySelector(".bar i"); bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = "";
+    cursor.style.setProperty("--cx", tab.dataset.x); cursor.style.setProperty("--cy", tab.dataset.y);
+    const delay = still() || user ? 0 : 1000;
+    setTimeout(() => {
+      show(tab.dataset.k);
+      cursor.classList.remove("tap"); void cursor.offsetWidth; cursor.classList.add("tap");
+    }, delay);
+    if (user && chaptersEl.scrollWidth > chaptersEl.clientWidth) tab.scrollIntoView({ block: "nearest", inline: "nearest", behavior: still() ? "auto" : "smooth" });
+    schedule();
+  };
+  const schedule = () => {
+    clearTimeout(timer);
+    const paused = still() || !inView || hovering;
+    chaptersEl.classList.toggle("paused", paused);
+    document.getElementById("stage").classList.toggle("paused", paused);
+    if (!paused) timer = setTimeout(() => go(idx + 1), DUR);
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => go(i, true));
+    t.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); go(i + (e.key === "ArrowRight" ? 1 : -1), true); tabs[idx].focus(); }
+    });
+  });
+  const stage = document.getElementById("stage");
+  stage.addEventListener("pointerenter", () => { hovering = true; schedule(); });
+  stage.addEventListener("pointerleave", () => { hovering = false; schedule(); });
+  stage.addEventListener("focusin", () => { hovering = true; schedule(); });
+  stage.addEventListener("focusout", () => { hovering = false; schedule(); });
+  new IntersectionObserver(([en]) => { inView = en.isIntersecting; schedule(); }).observe(win);
+  setTimeout(() => go(0), still() ? 0 : 1900);
+
+  /* palettes : la capture et la page changent ensemble */
+  const sw = [...document.querySelectorAll(".swatch")];
+  const views = [...document.querySelectorAll(".pal-view img")];
+  sw.forEach((b) => b.addEventListener("click", () => {
+    const p = b.dataset.pal;
+    root.dataset.pal = p;
+    sw.forEach((o) => o.setAttribute("aria-pressed", String(o === b)));
+    views.forEach((v) => v.classList.toggle("on", v.dataset.pal === p));
+    const hero = win.querySelector('[data-k="themes"]');
+    hero.src = "media/app-" + (p === "braise" ? "aube" : p) + ".webp";
+  }));
+
+  /* copie de la commande */
+  const copy = document.getElementById("copy");
+  copy.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(copy.dataset.cmd); copy.textContent = "Copié"; }
+    catch { getSelection().selectAllChildren(document.getElementById("cmd")); copy.textContent = "Sélectionné"; }
+    setTimeout(() => { copy.textContent = "Copier"; }, 1600);
+  });
+
+  /* journal d’installation qui s’écrit */
+  const log = document.getElementById("log");
+  const lines = log.dataset.lines.split("|");
+  const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
+  const paint = (n, partial) => {
+    const out = lines.slice(0, n).map((l) => { const [k, ...r] = l.split(" "); return "<b>" + esc(k) + "</b> " + esc(r.join(" ")); });
+    if (partial != null) { const l = lines[n]; const [k, ...r] = l.slice(0, partial).split(" "); out.push("<b>" + esc(k) + "</b>" + (r.length ? " " + esc(r.join(" ")) : "")); }
+    log.innerHTML = out.join("\n") + '<span class="caret"></span>';
+  };
+  if (still()) paint(lines.length);
+  else {
+    paint(0);
+    new IntersectionObserver(([en], obs) => {
+      if (!en.isIntersecting) return; obs.disconnect();
+      let n = 0, c = 0;
+      const step = () => {
+        if (n >= lines.length) return paint(lines.length);
+        c += 3; if (c >= lines[n].length) { n++; c = 0; paint(n); setTimeout(step, 260); } else { paint(n, c); setTimeout(step, 16); }
+      };
+      step();
+    }, { threshold: 0.4 }).observe(log);
+  }
+
+  /* chiffres réels qui se posent */
+  const facts = [...document.querySelectorAll("#facts strong")];
+  if (!still()) new IntersectionObserver(([en], obs) => {
+    if (!en.isIntersecting) return; obs.disconnect();
+    facts.forEach((f) => { const n = +f.dataset.n; if (!n) return; let i = 0; const t = setInterval(() => { f.textContent = ++i; if (i >= n) clearInterval(t); }, 900 / n); f.textContent = "0"; });
+  }, { threshold: 0.6 }).observe(document.getElementById("facts"));
+})();
+</script>
+</body>
+</html>
