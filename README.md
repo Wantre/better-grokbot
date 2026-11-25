@@ -5,7 +5,7 @@
 <h1 align="center">Better GrokBot</h1>
 
 <p align="center">
-  Grok Bot, avec un châssis complet : rail de navigation, Chat IA, navigateur Web, palette <kbd>Ctrl</kbd> <kbd>K</kbd>, barre Répond vers d’autres IA, quotas en direct et mises à jour automatiques.<br>
+  Grok Bot, avec un châssis complet, en huit langues : rail de navigation, Chat IA, navigateur Web, palette <kbd>Ctrl</kbd> <kbd>K</kbd>, barre Répond vers d’autres IA, quotas en direct, plugins isolés et mises à jour automatiques.<br>
   <a href="https://wantre.github.io/better-grokbot/"><b>Voir le site</b></a> · <a href="https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"><b>Télécharger Patch GrokBot</b></a> (dernière version) · <a href="https://discord.gg/D7CB6UePFD">Discord</a>
 </p>
 
@@ -24,6 +24,18 @@ Better GrokBot est une **copie privée** de Grok Bot. L’installation d’origi
 Le fichier n’est pas signé : Windows peut afficher SmartScreen (« Windows a protégé votre PC »). Cliquez « Informations complémentaires », puis « Exécuter quand même ». Les empreintes de chaque fichier sont dans `SHA256SUMS`. Le paquet `.zip` reste disponible sur la [page des versions](https://github.com/Wantre/better-grokbot/releases/latest) pour une installation hors ligne.
 
 **Depuis la 1.3** : le bouton de mise à jour de la 1.3 ne peut pas passer en 1.4. Lancez Patch-GrokBot.exe : vos réglages, notes et prompts sont gardés.
+
+## Nouveau dans la 1.5
+
+| | |
+|---|---|
+| <img src="media/app15-createur.webp" alt="Créateur de plugins" width="420"> | **Créateur de plugins** : modèles, identifiant créé depuis le nom et vérifié pendant la saisie, icône, version, permissions expliquées, aperçu en direct (<kbd>Ctrl</kbd> <kbd>Entrée</kbd>). |
+| <img src="media/app15-plugins.webp" alt="Onglet Plugins" width="200"> | **Plugins isolés** : chaque plugin tourne dans son propre Worker et ne fait que ce que déclarent ses permissions. Jamais vos clés, jetons ou fichiers. Paquets à glisser sur la fenêtre (dossier, .zip, .bgbplugin), galerie, export, mode sans échec. |
+| <img src="media/app15-langue.webp" alt="Choix de la langue" width="200"> | **Huit langues** : français, anglais, espagnol, allemand, italien, portugais, néerlandais, polonais. La langue de Windows au premier lancement, à changer dans Système. |
+
+Documentation des plugins : [en ligne](https://wantre.github.io/better-grokbot/plugins.html) et dans l’app (Plugins > Documentation). Le client MCP est reporté : il n’était pas assez fiable pour cette version. Détail dans [`CHANGELOG.md`](CHANGELOG.md).
+
+Le site existe aussi en [English](https://wantre.github.io/better-grokbot/en/), [Español](https://wantre.github.io/better-grokbot/es/), [Deutsch](https://wantre.github.io/better-grokbot/de/), [Italiano](https://wantre.github.io/better-grokbot/it/), [Português](https://wantre.github.io/better-grokbot/pt/), [Nederlands](https://wantre.github.io/better-grokbot/nl/) et [Polski](https://wantre.github.io/better-grokbot/pl/).
 
 ## Nouveau dans la 1.4
 

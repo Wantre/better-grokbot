@@ -1,3 +1,31 @@
+# Better GrokBot 1.5.0
+
+Note des changements depuis 1.4.0. Better GrokBot est conçu et développé par Wantre. Tout reste sur ce PC.
+
+## Huit langues
+
+L’interface entière de Better existe en français, anglais, espagnol, allemand, italien, portugais, néerlandais et polonais (1 495 textes). La langue de Windows est choisie au premier lancement ; on peut la changer dans Système > Langue. Les dates, heures et nombres suivent la langue. Les messages d’erreur du processus principal sont traduits à l’affichage, sans le préfixe technique d’Electron. Les libellés longs (allemand, polonais) se coupent proprement au lieu de déborder. Les traductions sont des fichiers JSON simples, dans elements/shell/i18n.
+
+## Plugins, version 2
+
+- **Isolés** : chaque plugin tourne dans son propre Worker, sans accès à la page, au pont local, au réseau ni au stockage de Grok. Il ne fait que ce que déclare son plugin.json (notifications, lecture ou écriture du message, lecture de la conversation, stockage privé, presse-papiers, sites https listés). Clés, jetons et fichiers ne sont jamais accessibles.
+- **Créateur** : modèles, nom qui remplit l’identifiant, validation pendant la saisie, icône, version, permissions expliquées, éditeur de code et aperçu en direct avec console (Ctrl+Entrée).
+- **Paquets** : glisser un dossier, un .zip ou un .bgbplugin sur la fenêtre, ou importer avec un bouton. Better vérifie chaque manifeste, montre les permissions et la version (nouveau, mise à jour, plus ancienne), puis demande confirmation. Bouton « Redémarrer maintenant ».
+- **Galerie** : compteur de mots, réponses types, minuteur focus, météo (Open-Meteo, sans clé), conversation en Markdown.
+- **Gestion** : activer, désactiver, modifier, exporter un plugin ou tout exporter, retirer (le dossier va dans une corbeille, rien n’est effacé), anciennes versions gardées.
+- **Sécurité** : un plugin qui ne répond plus ou accumule les erreurs est arrêté et désactivé ; si un démarrage n’aboutit pas, mode sans échec.
+- **Documentation** complète dans l’app et sur le site (API, manifeste, permissions, exemples, bonnes pratiques).
+
+## Corrections
+
+- « identifiant de plugin invalide » : l’identifiant des boutons du pont est créé depuis le nom et vérifié pendant la saisie, avec un message clair.
+- Détection du bouton Partager et du nom de l’agent aussi avec une interface Grok en anglais.
+- Compteur de mots : « 0 min » pour un message vide.
+
+## Reporté
+
+Le client MCP n’est pas dans cette version : il n’était pas assez fiable pour être publié.
+
 # Better GrokBot 1.4.0
 
 Note des changements depuis 1.3.0. Better GrokBot est conçu et développé par Wantre. Tout reste sur ce PC : rien de ce qui suit n’envoie de données ailleurs.
