@@ -130,7 +130,7 @@ code{font:500 .92em/1.4 ui-monospace,"Cascadia Code",Consolas,monospace}
 .cursor .tag{position:absolute;left:18px;top:18px;white-space:nowrap;font:600 12px/1 var(--ui);padding:6px 8px;border-radius:8px;background:var(--acc);color:#140904;transition:background-color 1s var(--ease)}
 .cursor.tap::after{content:"";position:absolute;left:-12px;top:-12px;width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 2px var(--acc-hi);animation:tap .7s var(--ease-out) forwards}
 @keyframes tap{from{transform:scale(.4);opacity:1}to{transform:scale(1.8);opacity:0}}
-.chapters{margin-top:20px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.chapters{margin-top:20px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
 .chap{position:relative;text-align:left;padding:14px 14px 16px;border-radius:var(--r-md);background:rgba(255,255,255,.02);box-shadow:inset 0 0 0 1px var(--line);transition:background-color .4s var(--ease),box-shadow .4s var(--ease)}
 .chap:hover{background:rgba(255,255,255,.05)}
 .chap b{display:block;font-weight:600;font-size:14px;line-height:20px}
@@ -229,6 +229,12 @@ section{position:relative}
 .card .txt{padding:24px 28px 28px}
 .card h3{font:600 18px/26px var(--ui);letter-spacing:-.015em}
 .card p{margin-top:6px;color:var(--mute);font-size:15px;line-height:22px}
+.c-chat{grid-column:span 4}.c-web,.c-sys{grid-column:span 2}.c-rep,.c-rail,.c-about{grid-column:span 2}
+.c-chat .pic{min-height:360px}.c-chat .pic img{object-position:100% 0}.c-web .pic img,.c-sys .pic img,.c-about .pic img{object-position:100% 0}.c-rep .pic img{object-position:40% 85%}.c-rail .pic img{object-position:0 40%}
+.ver{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:5px 12px;border-radius:999px;font-size:13px;line-height:18px;color:var(--ink);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--line-2)}
+.ver i{width:7px;height:7px;border-radius:50%;background:#ff8a2b;box-shadow:0 0 10px #ff8a2b}
+.lic{margin-top:28px;padding:24px 28px;border-radius:var(--r-xl);background:var(--s1);box-shadow:inset 0 0 0 1px var(--line)}
+.lic h3{font:600 18px/26px var(--ui)}.lic p{margin-top:6px;color:var(--mute);font-size:15px;line-height:22px}
 .c-places{grid-column:span 4}.c-plugins{grid-column:span 2}
 .c-fil,.c-outils,.c-mcp{grid-column:span 2}
 .c-bar{grid-column:span 3}.c-splash{grid-column:span 3}
@@ -342,7 +348,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
   .hero-top{grid-template-columns:1fr}
   .bridges{align-items:flex-start}
   .bridges ul{justify-content:flex-start;max-width:none}
-  .chapters{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .chapters{grid-template-columns:repeat(4,minmax(0,1fr))}
   .feat,.feat.flip{grid-template-columns:1fr}
   .feat.flip .copy{order:0}
   .shot{min-height:440px}
@@ -350,6 +356,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
   .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
   .c-places,.c-bar,.c-splash{grid-column:span 2}
   .c-plugins,.c-fil,.c-outils,.c-mcp{grid-column:span 1}
+  .c-chat{grid-column:span 2}.c-web,.c-sys,.c-rep,.c-rail,.c-about{grid-column:span 1}
   .facts{grid-template-columns:repeat(2,1fr)}
   .facts div:nth-child(3){box-shadow:0 -1px 0 var(--line)}
   .facts div:nth-child(4){box-shadow:-1px 0 0 var(--line),0 -1px 0 var(--line)}
@@ -376,7 +383,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
   .menus{grid-template-columns:1fr}
   .manifest{padding:140px 0 24px}
   .bento{grid-template-columns:1fr}
-  .c-places,.c-plugins,.c-fil,.c-outils,.c-mcp,.c-bar,.c-splash{grid-column:span 1}
+  .c-places,.c-plugins,.c-fil,.c-outils,.c-mcp,.c-bar,.c-splash,.c-chat,.c-web,.c-sys,.c-rep,.c-rail,.c-about{grid-column:span 1}
   .c-places .pic{min-height:280px}
   .facts strong{font-size:40px}
   .facts div{padding:20px}
@@ -405,18 +412,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Better GrokBot, haut de page"><svg aria-hidden="true"><use href="#logo"/></svg><span>Better<b>GrokBot</b></span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#chassis">Châssis</a><a href="#repond">Répond</a><a href="#pont">Pont</a><a href="#quotas">Quotas</a><a href="#palettes">Palettes</a><a href="#installer">Installer</a><a href="#faq">Questions</a>
+      <a href="#nouveau">Nouveau</a><a href="#chassis">Châssis</a><a href="#repond">Répond</a><a href="#pont">Pont</a><a href="#palettes">Palettes</a><a href="#installer">Installer</a><a href="#faq">Questions</a><a href="https://discord.gg/D7CB6UePFD">Discord</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="#installer">Prérequis</a>
-      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest">Télécharger</a>
+      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0">Télécharger 1.3</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Ouvrir le menu"><i></i><i></i></button>
     </div>
   </div>
 </header>
 <div class="sheet" id="sheet" aria-label="Menu">
-  <a href="#chassis">Châssis</a><a href="#repond">Répond</a><a href="#pont">Pont</a><a href="#quotas">Quotas</a><a href="#palettes">Palettes</a><a href="#installer">Installer</a><a href="#faq">Questions</a>
-  <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+  <a href="#nouveau">Nouveau</a><a href="#chassis">Châssis</a><a href="#repond">Répond</a><a href="#pont">Pont</a><a href="#palettes">Palettes</a><a href="#installer">Installer</a><a href="#faq">Questions</a><a href="https://discord.gg/D7CB6UePFD">Discord</a>
+  <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
 </div>
 
 <main id="contenu">
@@ -425,10 +432,11 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
   <div class="wrap">
     <div class="hero-top">
       <div>
+        <span class="ver hero-fade"><i aria-hidden="true"></i>Version 1.3 : Chat IA, navigateur, mises à jour automatiques</span>
         <h1 class="h1" id="titre"><span class="ln"><span>Grok Bot,</span></span><span class="ln"><span>avec tout ce qui</span></span><span class="ln"><span>lui manquait.</span></span></h1>
-        <p class="hero-sub hero-fade">Better GrokBot est une <strong>copie privée</strong> de Grok Bot. Elle ajoute un rail de navigation, une palette <kbd>Ctrl</kbd> <kbd>K</kbd>, la barre Répond pour confier un message à Cursor, Claude ou Codex, les quotas en direct et trois palettes. L’installation d’origine n’est jamais modifiée.</p>
+        <p class="hero-sub hero-fade">Better GrokBot est une <strong>copie privée</strong> de Grok Bot. Elle ajoute un rail de navigation, un <strong>Chat IA</strong> et un navigateur Web à côté de la conversation, une palette <kbd>Ctrl</kbd> <kbd>K</kbd>, la barre Répond pour confier un message à Cursor, Claude ou Codex, les quotas en direct et des mises à jour qui s’installent seules. L’installation d’origine n’est jamais modifiée.</p>
         <div class="hero-act hero-fade">
-          <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+          <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
           <a class="btn btn-ghost" href="#chassis">Voir le châssis</a>
         </div>
       </div>
@@ -453,6 +461,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
         <img src="media/app-pont.webp" alt="" width="2000" height="1250" data-k="pont" loading="lazy">
         <img src="media/app-quotas.webp" alt="" width="2000" height="1250" data-k="quotas" loading="lazy">
         <img src="media/app-repond.webp" alt="" width="2000" height="1250" data-k="repond" loading="lazy">
+        <img src="media/app13-chatia.webp" alt="" width="2000" height="1250" data-k="aichat" loading="lazy">
         <img src="media/app-aube.webp" alt="" width="2000" height="1250" data-k="themes" loading="lazy">
         <div class="cursor" id="cursor" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 2.5l15 8.2-6.6 1.6-2.9 6.4z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></svg>
@@ -465,6 +474,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
         <button class="chap" role="tab" data-k="pont" data-x="4.3" data-y="30.1" aria-selected="false"><b>Pont</b><span>Routes et CLI</span><span class="bar"><i></i></span></button>
         <button class="chap" role="tab" data-k="quotas" data-x="4.3" data-y="38.3" aria-selected="false"><b>Quotas</b><span>Lus en direct</span><span class="bar"><i></i></span></button>
         <button class="chap" role="tab" data-k="repond" data-x="52.6" data-y="88.8" aria-selected="false"><b>Répond</b><span>Un autre modèle</span><span class="bar"><i></i></span></button>
+        <button class="chap" role="tab" data-k="aichat" data-x="4.3" data-y="48.4" aria-selected="false"><b>Chat IA</b><span>Nouveau en 1.3</span><span class="bar"><i></i></span></button>
         <button class="chap" role="tab" data-k="themes" data-x="4.3" data-y="85.2" aria-selected="false"><b>Palettes</b><span>Braise, Aube, Nuit</span><span class="bar"><i></i></span></button>
       </div>
     </div>
@@ -473,6 +483,52 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
       <div class="rv"><svg aria-hidden="true"><use href="#i-eye"/></svg><h2 class="t3">Lire l’origine</h2><p><code>Grok Bot.exe</code> et <code>app.asar</code> sont lus dans <code>Programs\Grok Bot</code>. Rien n’y est écrit.</p></div>
       <div class="rv d1"><svg aria-hidden="true"><use href="#i-copy"/></svg><h2 class="t3">Écrire la copie</h2><p>La copie s’installe dans <code>Local\GrokBot-inprocess</code>. L’archive y est reconstruite avec le châssis.</p></div>
       <div class="rv d2"><svg aria-hidden="true"><use href="#i-open"/></svg><h2 class="t3">Ouvrir la copie</h2><p>La fenêtre qui s’ouvre est Better GrokBot. Votre Grok Bot d’origine reste là, tel quel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="nouveau" aria-labelledby="t-nouveau">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <h2 class="h2" id="t-nouveau">Nouveau : un Chat IA, un navigateur et des mises à jour qui se font seules.</h2>
+        <p class="lede">Les versions 1.1 à 1.3 ajoutent un volet de chat pour les IA reliées, un navigateur Web avec sélection d’éléments, un rail qui se range et défile, et des mises à jour complètes. Captures réelles de la 1.3 ; la conversation Grok est floutée.</p>
+      </div>
+      <a class="lnk" href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0">Notes de la 1.3.0 <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="bento">
+      <article class="card c-chat rv">
+        <div class="pic"><img src="media/app13-chatia.webp" alt="Volet Chat IA : conversation avec Codex, réponse en Markdown avec un bloc de code et son bouton Copier" width="2000" height="1250" loading="lazy"></div>
+        <div class="txt"><h3>Chat IA</h3><p>Parlez à Cursor, Codex, Claude Code ou une IA locale dans un volet à côté de Grok. Choix du modèle avec logos, conversations gardées sur le PC, Markdown et code à copier, comparaison côte à côte. Rien ne part vers Grok sans votre clic. <kbd>Ctrl</kbd> <kbd>Maj</kbd> <kbd>A</kbd></p></div>
+      </article>
+      <article class="card c-web rv d1">
+        <div class="pic"><img src="media/app13-web.webp" alt="Volet Web : une page ouverte à côté de la conversation, avec le sélecteur d’éléments" width="2000" height="1250" loading="lazy"></div>
+        <div class="txt"><h3>Navigateur Web</h3><p>Une page ouverte à côté du fil. Le sélecteur envoie un élément, son texte et son image dans le champ de saisie, ou la page entière en Markdown. <kbd>Ctrl</kbd> <kbd>Maj</kbd> <kbd>E</kbd></p></div>
+      </article>
+      <article class="card c-rep rv">
+        <div class="pic"><img src="media/app13-repond.webp" alt="Liste Qui répond dans Grok : recherche, IA prêtes avec leurs logos, puis celles à relier" width="2000" height="1250" loading="lazy"></div>
+        <div class="txt"><h3>Répond, refait</h3><p>La carte reste fixe au-dessus du champ de saisie, avec du grain. La liste montre les logos, sépare les IA prêtes de celles à relier, et se filtre au clavier.</p></div>
+      </article>
+      <article class="card c-rail rv d1">
+        <div class="pic"><img src="media/app13-rail.webp" alt="Le rail de Better GrokBot en mode simple, avec le nom de chaque entrée sous son icône" width="2000" height="1250" loading="lazy"></div>
+        <div class="txt"><h3>Un rail qui se range</h3><p>Le nom reste sous chaque icône en mode Simple, jamais en Compact. Épingler, monter, masquer ; le rail défile avec une barre fine qui ne prend pas de place.</p></div>
+      </article>
+      <article class="card c-sys rv d2">
+        <div class="pic"><img src="media/app13-systeme.webp" alt="Panneau Système : version, retour arrière, mise à jour automatique et attente d’une pause de 5, 10 ou 30 minutes" width="2000" height="1250" loading="lazy"></div>
+        <div class="txt"><h3>Mises à jour sans y penser</h3><p>Téléchargement, empreinte sha256, fermeture, patch et relance, sous un voile de transition. En option, la mise à jour attend un moment calme et prévient 60 secondes avant. La version précédente reste gardée.</p></div>
+      </article>
+    </div>
+    <div class="feat flip" style="margin-top:16px">
+      <div class="copy rv">
+        <div class="kick">Crédits</div>
+        <h3>Conçu et développé par Wantre.</h3>
+        <p>La page À propos réunit la version, les liens et les bibliothèques tierces avec leurs licences. Better GrokBot est un projet indépendant.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Communauté</b> : questions, idées et retours sur <a href="https://discord.gg/D7CB6UePFD">le serveur Discord</a>.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Notes</b> : chaque version est détaillée dans le <a href="https://github.com/Wantre/better-grokbot/blob/main/CHANGELOG.md">journal des changements</a>.</span></li>
+        </ul>
+      </div>
+      <figure class="shot rv d1" style="margin:0"><img src="media/app13-apropos.webp" alt="Panneau À propos : Better GrokBot, conçu et développé par Wantre, version et bibliothèques tierces" width="2000" height="1250" loading="lazy" style="object-position:100% 0" data-par><figcaption>À propos</figcaption></figure>
     </div>
   </div>
 </section>
@@ -490,7 +546,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
     <div class="feat">
       <div class="copy rv">
         <div class="kick"><img src="media/rail.webp" alt="" width="28" height="28" style="object-fit:cover;object-position:50% 14%">Rail et panneaux</div>
-        <h3>Huit entrées, un clic chacune.</h3>
+        <h3>Chaque entrée, un clic.</h3>
         <p>Le rail reste visible pendant que vous écrivez. Chaque entrée ouvre son panneau sans quitter le fil, et Échap le referme.</p>
         <div class="menus">
           <div><b>Agents</b><span>Vos agents, leurs fils, un clic.</span></div>
@@ -543,7 +599,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
           <li><span>Le modèle choisi travaille, puis Grok vous montre ce qui revient.</span></li>
         </ol>
         <ul>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Déplaçable</b> au grip, et réductible en une pastille de 36 pixels.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Fixe</b> au-dessus du champ de saisie, toujours au-dessus des images collées, et réductible en pastille.</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Honnête</b> : seuls les ponts dont la CLI est vraiment là apparaissent.</span></li>
         </ul>
       </div>
@@ -668,7 +724,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
       </article>
     </div>
     <div class="facts rv" id="facts">
-      <div><strong data-n="8">8</strong><span>entrées dans le rail</span></div>
+      <div><strong data-n="17">17</strong><span>entrées dans le rail, à ranger</span></div>
       <div><strong data-n="6">6</strong><span>CLI reconnues : Cursor, Claude, Codex, Gemini, Copilot, OpenCode</span></div>
       <div><strong data-n="3">3</strong><span>palettes : Braise, Aube, Nuit</span></div>
       <div><strong data-n="0">0</strong><span>fichier écrit dans <code>Programs\Grok Bot</code></span></div>
@@ -683,7 +739,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
         <h2 class="h2" id="t-inst">Installer la copie.</h2>
         <p class="lede">Patch GrokBot trouve Grok Bot, prépare la copie et l’ouvre. Désinstaller retire la copie, jamais Grok Bot.</p>
       </div>
-      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
     </div>
     <div class="inst">
       <div>
@@ -725,7 +781,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
       <details><summary>D’où viennent les quotas ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Le pourcentage Grok est lu dans les données que la session reçoit déjà. Pour les ponts liés, la jauge apparaît quand la CLI publie un chiffre, sinon la carte l’indique.</p></details>
       <details><summary>Puis-je effacer l’historique d’un fil ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Non : Grok ne permet pas d’effacer l’historique dans le cloud, et Better ne le prétend pas. Reprendre le fil place simplement le curseur dans le composeur.</p></details>
       <details><summary>Puis-je couper les animations ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Oui, dans Thèmes, avec Animations. Le grain et le décor géométrique se coupent séparément. Le réglage de réduction des animations de Windows est respecté.</p></details>
+      <details><summary>Better GrokBot est-il open source ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Non. Il est sous <a href="LICENSE">licence propriétaire Wantre</a>, tous droits réservés : le téléchargement et l’usage personnel sont gratuits, mais la redistribution, la modification, la revente ou la réutilisation du code et de la marque demandent l’accord écrit de Wantre.</p></details>
+      <details><summary>Où poser une question ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Sur le <a href="https://discord.gg/D7CB6UePFD">serveur Discord Better GrokBot</a>.</p></details>
       <details><summary>Comment désinstaller ?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Ouvrez Patch GrokBot et cliquez sur Désinstaller. La copie est retirée. Grok Bot, lui, n’est pas touché.</p></details>
+    </div>
+    <div class="lic rv" id="licence">
+      <h3>Licence</h3>
+      <p>Better GrokBot est sous <a href="LICENSE">licence propriétaire Wantre — tous droits réservés</a>. Téléchargement et usage personnel gratuits. Redistribuer, modifier, décompiler pour en faire une œuvre dérivée, revendre ou réutiliser le code ou la marque demande l’accord écrit de Wantre. Le logiciel est fourni tel quel, sans garantie. Projet indépendant, non affilié à xAI, X ou Grok Bot ; leurs marques appartiennent à leurs détenteurs.</p>
     </div>
   </div>
 </section>
@@ -736,8 +798,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
     <h2 class="h2 rv" id="t-final">Gardez Grok Bot. Ajoutez le châssis.</h2>
     <p class="rv d1">Une copie privée, réversible en un clic, qui laisse l’original intact.</p>
     <div class="hero-act rv d2">
-      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/latest"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
-      <a class="btn btn-ghost" href="#installer">Voir les prérequis</a>
+      <a class="btn btn-main" href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg>Télécharger Patch GrokBot</a>
+      <a class="btn btn-ghost" href="https://discord.gg/D7CB6UePFD">Rejoindre le Discord</a>
     </div>
     <small class="rv d2">Windows, .NET 8, WebView2 et Node.</small>
   </div>
@@ -750,10 +812,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
       <div><a class="brand" href="#top"><svg aria-hidden="true"><use href="#logo"/></svg><span>Better<b>GrokBot</b></span></a><p>Better GrokBot est une copie privée. Grok Bot, dans Programs, n’est pas modifié.</p></div>
       <div><h2 class="fh">Produit</h2><ul><li><a href="#chassis">Châssis</a></li><li><a href="#repond">Répond</a></li><li><a href="#pont">Pont</a></li><li><a href="#quotas">Quotas</a></li></ul></div>
       <div><h2 class="fh">Réglages</h2><ul><li><a href="#palettes">Palettes</a></li><li><a href="#reste">Places et plugins</a></li><li><a href="#mcp">Connecteur MCP</a></li></ul></div>
-      <div><h2 class="fh">Installer</h2><ul><li><a href="https://github.com/Wantre/better-grokbot/releases/latest">Patch GrokBot.exe</a></li><li><a href="#installer">Prérequis</a></li><li><a href="#faq">Questions</a></li></ul></div>
-      <div><h2 class="fh">Projet</h2><ul><li><a href="https://github.com/Wantre/better-grokbot">Code sur GitHub</a></li><li><a href="https://github.com/Wantre/better-grokbot/releases">Versions</a></li><li><a href="https://github.com/Wantre">Par Wantre</a></li></ul></div>
+      <div><h2 class="fh">Installer</h2><ul><li><a href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0">Patch GrokBot.exe</a></li><li><a href="#installer">Prérequis</a></li><li><a href="#faq">Questions</a></li></ul></div>
+      <div><h2 class="fh">Projet</h2><ul><li><a href="https://github.com/Wantre/better-grokbot">Page GitHub</a></li><li><a href="https://discord.gg/D7CB6UePFD">Discord</a></li><li><a href="LICENSE">Licence</a></li><li><a href="https://github.com/Wantre/better-grokbot/releases">Versions</a></li><li><a href="https://github.com/Wantre">Par Wantre</a></li></ul></div>
     </div>
-    <div class="legal"><span>Better GrokBot · par <a href="https://github.com/Wantre">Wantre</a></span><span class="status"><i aria-hidden="true"></i>Original intact, copie réversible</span></div>
+    <div class="legal"><span>© 2026 Better GrokBot · conçu et développé par <a href="https://github.com/Wantre">Wantre</a> · <a href="LICENSE">Licence propriétaire, tous droits réservés</a></span><span class="status"><i aria-hidden="true"></i>Original intact, copie réversible</span></div>
   </div>
 </footer>
 

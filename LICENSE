@@ -1,30 +1,27 @@
-MIT License
+Licence propriétaire Wantre — tous droits réservés
 
-Copyright (c) 2026 Wantre
+Better GrokBot (le « Logiciel »), y compris Patch GrokBot, ses fichiers, son code, ses visuels, son site et ses noms, est la propriété de Wantre (le « Titulaire »). © 2026 Wantre. Tous droits réservés.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. Ce qui est permis
+Vous pouvez télécharger le Logiciel depuis ses canaux officiels et l’utiliser gratuitement, pour un usage personnel, sur vos propres appareils. Vous pouvez appliquer les mises à jour publiées par le Titulaire.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+2. Ce qui est interdit sans accord écrit du Titulaire
+- redistribuer, publier, louer, prêter, vendre ou revendre le Logiciel, en tout ou en partie, gratuitement ou non ;
+- modifier le Logiciel, ou le décompiler, le désassembler ou l’analyser pour en faire une œuvre dérivée ;
+- réutiliser tout ou partie du code, des visuels, du nom « Better GrokBot », du logo ou de la marque Wantre dans un autre produit ou service ;
+- retirer ou modifier les mentions de propriété, de crédits ou la présente licence.
+Ces limites s’appliquent dans la mesure permise par la loi applicable.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+3. Aucune garantie
+Le Logiciel est fourni « tel quel », sans garantie d’aucune sorte, expresse ou implicite, notamment de bon fonctionnement, d’adéquation à un usage particulier ou d’absence d’erreurs. Dans la mesure permise par la loi, le Titulaire n’est pas responsable des dommages, pertes de données ou autres préjudices liés à l’usage ou à l’impossibilité d’usage du Logiciel.
 
----
-This license covers the site's code (HTML, CSS, JavaScript) and its original
-visuals. It does not cover third-party material bundled in this repository:
-- fonts/: Bricolage Grotesque and Instrument Sans, SIL Open Font License 1.1
-  (see fonts/OFL-*.txt);
-- media/logos/: icons from Simple Icons (CC0 1.0). The brands they show are
-  trademarks of their respective owners;
-- "Grok Bot" and other product names belong to their respective owners.
+4. Indépendance
+Better GrokBot est un projet indépendant. Il n’est ni affilié à xAI, X ou Grok Bot, ni approuvé, sponsorisé ou soutenu par eux. Grok, Grok Bot, xAI et X sont des marques de leurs détenteurs respectifs. Les autres noms de produits cités appartiennent à leurs propriétaires.
+
+5. Composants tiers
+Le Logiciel s’appuie sur des composants tiers (par exemple Electron, pdf.js, des polices et des icônes) qui restent soumis à leurs propres licences. La présente licence ne s’applique pas à eux et ne restreint pas les droits que leurs licences accordent.
+
+6. Fin des droits
+Tout manquement à cette licence met fin automatiquement au droit d’utiliser le Logiciel. Vous devez alors cesser de l’utiliser et supprimer vos copies.
+
+Pour toute autorisation, adressez-vous à Wantre : https://github.com/Wantre
