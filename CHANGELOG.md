@@ -3,6 +3,7 @@
 Le pont local manquait lorsqu’un autre ordinateur n’avait reçu que le patcher. L’écran Plugins affichait « BetterGrokBot.exe est introuvable ».
 
 - **Pont local** : BetterGrokBot.exe voyage avec le paquet. La mise à jour le place dans le dossier personnel, sans remplacer un réglage, une clé ou un plugin déjà là. Les boutons du pont, le bac à sable et le connecteur ne demandent plus de copie manuelle.
+- **Notification de mise à jour** : elle n’apparaît que lorsque le paquet, l’archive complète, Patch GrokBot et les empreintes de cette version sont tous en ligne. Une version annoncée trop tôt n’est plus installée à la place.
 
 # Better GrokBot 1.5.1
 
