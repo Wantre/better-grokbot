@@ -1,0 +1,12 @@
+{
+  "targetTitle": "Grok Bot",
+  "targetClass": "",
+  "targetPathHint": "AppData\\Local\\Programs\\Grok Bot",
+  "edge": "top-right",
+  "barWidth": 280,
+  "barHeight": 36,
+  "gap": 4,
+  "captionReserve": 180,
+  "inset": 4,
+  "pollMs": 500
+}
