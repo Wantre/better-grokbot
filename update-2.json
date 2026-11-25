@@ -1,9 +1,9 @@
 {
-  "version": "1.5.0",
-  "notes": "Huit langues, plugins version 2 (isolés, créateur, galerie, paquets à glisser), documentation des plugins. Le détail est dans CHANGELOG.md.",
-  "sha256": "95a34f36c842728ec2650e5fa624de0e585bb560e5f7c5ad692db3dde4e1b639",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.0/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.0/Better-GrokBot-1.5.0-Windows.zip",
-  "fullSha256": "3fe2a946228a361b48919f3a7568e4e2aeb4c285582b4c5a4fa03623a96985ed",
+  "version": "1.5.1",
+  "notes": "Correctif : les plugins ne sont plus désactivés à tort quand la fenêtre de Grok reste réduite. Réactivez-les dans l’onglet Plugins si besoin.",
+  "sha256": "4f5e8b4a4da6affd3987117088c1af85da111c6190b33b76e15e5a7f39230593",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.1/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.1/Better-GrokBot-1.5.1-Windows.zip",
+  "fullSha256": "02c023485a57ab76ff8ebb41f40da4e598fb5db91cf72efcd815200db61a6158",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }

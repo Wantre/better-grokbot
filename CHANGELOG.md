@@ -1,3 +1,9 @@
+# Better GrokBot 1.5.1
+
+Correctif de 1.5.0.
+
+- **Plugins désactivés à tort** : quand la fenêtre de Grok restait réduite ou en arrière-plan, Windows et Chromium ralentissent les minuteries ; le chien de garde prenait ce ralentissement pour un plugin bloqué, l’arrêtait « par sécurité » et le désactivait. Il n’attend plus qu’un seul signe de vie à la fois et n’arrête un plugin que si ce signe reste sans réponse pendant au moins 12 secondes et trois contrôles. Une vraie boucle infinie est toujours arrêtée. Si vos plugins ont été désactivés par 1.5.0, réactivez-les dans l’onglet Plugins.
+
 # Better GrokBot 1.5.0
 
 Note des changements depuis 1.4.0. Better GrokBot est conçu et développé par Wantre. Tout reste sur ce PC.
