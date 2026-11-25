@@ -1,9 +1,9 @@
 {
-  "version": "1.4.0",
-  "notes": "Historique et recherche, mémoire locale chiffrée, projets avec GitHub, document, lecture à voix haute, rythme du quota, compositeur et mises à jour corrigés. Le détail est dans CHANGELOG.md.",
-  "sha256": "091080a0b19eced10c9d73ffbbd98a258125542f3eaf01f862a6b777b85036d5",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.4.0/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.4.0/Better-GrokBot-1.4.0-Windows.zip",
-  "fullSha256": "32593b6445ac0ec28fcda0e62ecc164d825acedd3a51c903a48f2fec9d83bc03",
+  "version": "1.5.0",
+  "notes": "Huit langues, plugins version 2 (isolés, créateur, galerie, paquets à glisser), documentation des plugins. Le détail est dans CHANGELOG.md.",
+  "sha256": "95a34f36c842728ec2650e5fa624de0e585bb560e5f7c5ad692db3dde4e1b639",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.0/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.0/Better-GrokBot-1.5.0-Windows.zip",
+  "fullSha256": "3fe2a946228a361b48919f3a7568e4e2aeb4c285582b4c5a4fa03623a96985ed",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
