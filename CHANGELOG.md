@@ -1,3 +1,55 @@
+# Better GrokBot 1.4.0
+
+Note des changements depuis 1.3.0. Better GrokBot est conçu et développé par Wantre. Tout reste sur ce PC : rien de ce qui suit n’envoie de données ailleurs.
+
+## Composer
+
+Le rond « Répond » à gauche et la barre de droite (Second avis, file, épingle, micro) restent à 8 px au-dessus du bord visible du compositeur, alignés, même quand le texte devient long et défile à l’intérieur, avec ou sans image, en fenêtre étroite comprise. Avant, ils montaient avec la hauteur totale du texte et laissaient un grand vide sur le fil.
+
+## Quotas : le rythme
+
+La carte Quotas de l’accueil et la vue Quotas montrent la part de la semaine écoulée, l’heure exacte de remise à zéro, un compte à rebours quand le quota est épuisé, et si l’usage est dans le rythme.
+
+## Historique
+
+Nouvelle entrée « Historique » (Ctrl+Maj+F) : chaque fil ouvert est indexé sur ce PC, avec un titre automatique (modèle réglable : {agent}, {sujet}, {date}, {heure}). Recherche dans les titres, agents, étiquettes et contenus, avec extraits surlignés, filtres par période et par dossier. Dossiers, étiquettes, renommer, archiver (le fil peut aussi disparaître de la liste Grok, rien n’est effacé), relier deux fils.
+
+## Branches
+
+« Continuer d’ici » dans la bulle de sélection : le passage choisi part, avec son contexte, vers un autre agent ou le Chat IA. Le fil d’origine et la branche restent reliés dans l’Historique.
+
+## Mémoire « Me connaître »
+
+Un coffre local chiffré avec votre compte Windows : qui vous êtes, vos préférences, des souvenirs (ajoutés à la main, depuis la bulle « Retenir » ou proposés à partir de vos messages). Profils de consignes, profil par espace, import et export. Un court contexte se joint au premier message d’un fil, automatiquement ou avec Ctrl+Maj+J, et reste visible avant l’envoi.
+
+## Espaces devenus projets
+
+Chaque espace a son projet : conversations rattachées, consignes, fichiers (texte, code, Markdown, PDF, ZIP) et un dépôt GitHub cloné sur ce PC, dont on choisit les fichiers à joindre. Git doit être installé ; les dépôts privés utilisent vos identifiants Git habituels.
+
+## Document
+
+Un volet d’écriture pour les textes longs (Ctrl+Maj+O) : enregistrement automatique, ouvrir un fichier, enregistrer en .md, .txt ou PDF, aperçu Markdown, recherche, retouche d’une sélection par Grok, insertion de la dernière réponse.
+
+## Fichiers
+
+Les ZIP se lisent sur place et se joignent au fil. Un très long collage devient une pièce jointe .txt. La dernière réponse s’enregistre en Markdown, texte, PDF, ou un bloc de code avec la bonne extension.
+
+## Confort
+
+Lecture à voix haute des réponses (voix installées sur Windows seulement, Ctrl+Maj+L, Échap arrête). Notification « Réponse prête » quand Grok finit pendant que la fenêtre est en arrière-plan. Les vidéos ne se lancent plus seules. Entrée pendant une saisie IME (japonais, chinois, coréen…) ne valide plus le message.
+
+## Prompts
+
+Les prompts s’exportent et s’importent en paquets, avec ou sans les extraits.
+
+## Fiabilité
+
+Le serveur du Pont est lancé à part de Grok Bot : il n’hérite plus de ses fichiers ouverts. Les paquets publiés contiennent du JavaScript minifié. Ligne Licence dans À propos.
+
+## Pour plus tard
+
+Le client MCP est préparé pour la 1.5.
+
 # Better GrokBot 1.3.0
 
 Note des changements depuis 1.2.0. Better GrokBot est conçu et développé par Wantre.
