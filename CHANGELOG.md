@@ -44,7 +44,9 @@ Les prompts s’exportent et s’importent en paquets, avec ou sans les extraits
 
 ## Fiabilité
 
-Le serveur du Pont est lancé à part de Grok Bot : il n’hérite plus de ses fichiers ouverts. Les paquets publiés contiennent du JavaScript minifié. Ligne Licence dans À propos.
+Le serveur du Pont est lancé à part de Grok Bot : il n’hérite plus de ses fichiers ouverts. Mises à jour : la version gardée pour le retour arrière va dans un dossier horodaté, copié avec nouvelles tentatives, sans renommer ni effacer un dossier encore ouvert ; Grok ne verrouille plus ce dossier. Si une mise à jour échoue, l’écran indique l’étape et une raison lisible. La notification de bilan se ferme au clic, avec Échap, ou seule après 8 s.
+
+Depuis la 1.3 : la mise à jour intégrée de la 1.3 peut échouer avec « EPERM » quand une version de retour arrière est gardée (Grok tient ce fichier ouvert). Rien n’est changé dans ce cas. Installez alors le paquet complet : vos réglages restent. Les paquets publiés contiennent du JavaScript minifié. Ligne Licence dans À propos.
 
 ## Pour plus tard
 
