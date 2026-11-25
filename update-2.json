@@ -1,9 +1,9 @@
 {
-  "version": "1.5.1",
-  "notes": "Correctif : les plugins ne sont plus désactivés à tort quand la fenêtre de Grok reste réduite. Le pont local (BetterGrokBot.exe) est dans le paquet : relancez Patch GrokBot pour le recevoir.",
-  "sha256": "af76b489352424eb589986df66d179f526e1b5e2a1be17441b773d4c9d147400",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.1/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.1/Better-GrokBot-1.5.1-Windows.zip",
-  "fullSha256": "18f11f7590b56a62346ca75c645e5836d678a05148c1d79be7f94440c3541592",
+  "version": "1.5.2",
+  "notes": "1.5.2 : le pont local (BetterGrokBot.exe) est installé avec la mise à jour. Les boutons du pont ne signalent plus qu’il est introuvable.",
+  "sha256": "e1a449bc33bfd638c3b11faf015d941439cfa95bfdc76eaed7ba1540a1d9b887",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.2/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.2/Better-GrokBot-1.5.2-Windows.zip",
+  "fullSha256": "fc7cf5d8a7266ec2d7988f417897a41680e18721536005550feb71bd7eb25e4d",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
