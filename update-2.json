@@ -1,6 +1,6 @@
 {
   "version": "1.4.0",
   "notes": "Historique et recherche, mémoire locale chiffrée, projets avec GitHub, document, lecture à voix haute, rythme du quota, compositeur et mises à jour corrigés. Le détail est dans CHANGELOG.md.",
-  "sha256": "eb522a419d79cc2c62c77b3b6134d2ca2f754e9bf31b76c89a0884313e5a9760",
+  "sha256": "cf26c493865a3894ed7807d4e56e33bc56f05e08fcab839b0a9a911b62b857fc",
   "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.4.0/better-grokbot-patch.zip"
 }
