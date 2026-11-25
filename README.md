@@ -6,7 +6,7 @@
 
 <p align="center">
   Grok Bot, avec un châssis complet : rail de navigation, Chat IA, navigateur Web, palette <kbd>Ctrl</kbd> <kbd>K</kbd>, barre Répond vers d’autres IA, quotas en direct et mises à jour automatiques.<br>
-  <a href="https://wantre.github.io/better-grokbot/"><b>Voir le site</b></a> · <a href="https://github.com/Wantre/better-grokbot/releases/tag/v1.3.0">Télécharger la 1.3.0</a> · <a href="https://discord.gg/D7CB6UePFD">Discord</a>
+  <a href="https://wantre.github.io/better-grokbot/"><b>Voir le site</b></a> · <a href="https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"><b>Télécharger Patch GrokBot</b></a> (dernière version) · <a href="https://discord.gg/D7CB6UePFD">Discord</a>
 </p>
 
 ---
@@ -14,6 +14,28 @@
 Ce dépôt contient la page de présentation de Better GrokBot, publiée avec GitHub Pages, son manifeste de mise à jour et ses notes de version. Les paquets sont sur la page des versions.
 
 Better GrokBot est une **copie privée** de Grok Bot. L’installation d’origine, dans `Programs\Grok Bot`, est lue sans jamais être modifiée. La copie vit à part et se retire en un clic.
+
+## Installer ou mettre à jour
+
+**[Télécharger Patch-GrokBot.exe](https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe)**, puis lancez-le. Le patcher récupère la dernière version, vérifie son empreinte SHA-256, ferme Grok Bot, garde la version actuelle pour un retour arrière, applique le patch et relance Grok Bot. Il sert à la première installation comme aux mises à jour, et le bouton « Mettre à jour » de l’app passe par lui.
+
+<p align="center"><img src="media/patcher14.webp" alt="Patch GrokBot après une mise à jour : neuf étapes terminées" width="560"></p>
+
+Le fichier n’est pas signé : Windows peut afficher SmartScreen (« Windows a protégé votre PC »). Cliquez « Informations complémentaires », puis « Exécuter quand même ». Les empreintes de chaque fichier sont dans `SHA256SUMS`. Le paquet `.zip` reste disponible sur la [page des versions](https://github.com/Wantre/better-grokbot/releases/latest) pour une installation hors ligne.
+
+**Depuis la 1.3** : le bouton de mise à jour de la 1.3 ne peut pas passer en 1.4. Lancez Patch-GrokBot.exe : vos réglages, notes et prompts sont gardés.
+
+## Nouveau dans la 1.4
+
+| | |
+|---|---|
+| <img src="media/app14-memoire.webp" alt="Panneau Mémoire" width="420"> | **Mémoire « Me connaître »** : coffre chiffré avec votre compte Windows, souvenirs, profils de consignes, contexte joint quand vous le voulez. |
+| <img src="media/app14-historique.webp" alt="Volet Historique" width="420"> | **Historique** (<kbd>Ctrl</kbd> <kbd>Maj</kbd> <kbd>F</kbd>) : recherche dans tous les fils, titres automatiques, dossiers, étiquettes, archive. |
+| <img src="media/app14-document.webp" alt="Volet Document avec aperçu" width="420"> | **Document** (<kbd>Ctrl</kbd> <kbd>Maj</kbd> <kbd>O</kbd>) : volet d’écriture avec aperçu, retouche par Grok, enregistrement .md, .txt ou PDF. |
+| <img src="media/app14-bulle.webp" alt="Bulle de sélection" width="420"> | **Sélection** : citer, retenir, lire à voix haute, envoyer au Document, continuer d’ici avec un autre agent. |
+| <img src="media/app14-compositeur.webp" alt="Champ de saisie de 15 lignes" width="420"> | **Compositeur** : la barre de droite et le rond « Répond » restent à 8 px au-dessus du champ, même avec un long texte. |
+
+Aussi : projets avec dépôt GitHub cloné en local, rythme du quota, ZIP lus sur place, notification « Réponse prête », vidéos sans lecture automatique, saisie IME corrigée, mises à jour sans erreur EPERM. Détail dans [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Nouveau dans la 1.3
 
@@ -48,7 +70,7 @@ Seuls les ponts dont la CLI est vraiment installée apparaissent : Cursor, Claud
 
 ## Télécharger
 
-La dernière version est sur la [page des versions](https://github.com/Wantre/better-grokbot/releases/latest) : le paquet complet `Better-GrokBot-1.3.0-Windows.zip`, le paquet de mise à jour et `SHA256SUMS`. Les nouveautés sont dans [`CHANGELOG.md`](CHANGELOG.md).
+[Patch-GrokBot.exe](https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe) installe toujours la dernière version. La [page des versions](https://github.com/Wantre/better-grokbot/releases/latest) donne aussi le paquet complet `.zip`, le paquet de mise à jour et `SHA256SUMS`. Chaque nouvelle version est annoncée sur Discord, dans le salon « mises-à-jour ». Les nouveautés sont dans [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Communauté
 
