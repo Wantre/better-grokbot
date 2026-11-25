@@ -5,8 +5,8 @@
 <h1 align="center">Better GrokBot</h1>
 
 <p align="center">
-  Grok Bot, avec un châssis complet : rail de navigation, palette <kbd>Ctrl</kbd> <kbd>K</kbd>, barre Répond vers d’autres IA et quotas en direct.<br>
-  <a href="https://wantre.github.io/better-grokbot/"><b>Voir le site</b></a> · <a href="https://github.com/Wantre/better-grokbot/releases/latest">Versions</a>
+  Grok Bot, avec un châssis complet : rail de navigation, Chat IA, navigateur Web, palette <kbd>Ctrl</kbd> <kbd>K</kbd>, barre Répond vers d’autres IA, quotas en direct et mises à jour automatiques.<br>
+  <a href="https://wantre.github.io/better-grokbot/"><b>Voir le site</b></a> · <a href="https://github.com/Wantre/better-grokbot/releases/latest">Télécharger la 1.3.0</a> · <a href="https://discord.gg/D7CB6UePFD">Discord</a>
 </p>
 
 ---
@@ -24,11 +24,22 @@ Better GrokBot est une **copie privée** de Grok Bot. L’installation d’origi
 | **Répond** | Une barre au-dessus du champ de saisie pour confier un message à Cursor, Claude ou Codex. Grok reste l’agent qui vous parle. |
 | **Pont** | L’état du serveur local, les CLI trouvées sur le PC et le modèle assigné à chaque agent. Les clés collées restent chiffrées. |
 | **Quotas** | Le pourcentage Grok et la date de réinitialisation, puis la jauge de chaque pont lié quand sa CLI publie un chiffre. |
+| **Chat IA** | Un volet de chat complet pour parler aux IA reliées (Cursor, Codex, Claude Code…) : choix du modèle avec logos, conversations gardées sur le PC, Markdown, comparaison côte à côte. |
+| **Navigateur Web** | Un volet Web à côté de Grok. Le sélecteur envoie un élément de la page, avec son image, dans le champ de saisie. |
+| **Mises à jour** | Téléchargement, vérification sha256, fermeture, patch et relance, avec un voile de transition. Mise à jour automatique en option, quand rien ne tourne. |
 | **Palettes** | Braise, Aube et Nuit, appliquées tout de suite. Grain, décor et animations se règlent à part. |
 
 Seuls les ponts dont la CLI est vraiment installée apparaissent : Cursor, Claude Code, Codex, Gemini CLI, Copilot et OpenCode. Pas de clé API nécessaire pour eux.
 
 <p align="center"><img src="docs/capture-site.webp" alt="Haut de la page de présentation de Better GrokBot" width="100%"></p>
+
+## Télécharger
+
+La dernière version est sur la [page des versions](https://github.com/Wantre/better-grokbot/releases/latest) : le paquet complet `Better-GrokBot-1.3.0-Windows.zip`, le paquet de mise à jour et `SHA256SUMS`. Les nouveautés sont dans [`CHANGELOG.md`](CHANGELOG.md).
+
+## Communauté
+
+Questions, idées et retours sur le serveur Discord : **https://discord.gg/D7CB6UePFD**
 
 ## La page
 
