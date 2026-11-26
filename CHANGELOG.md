@@ -1,3 +1,16 @@
+# Better GrokBot 1.7.2
+
+## Corrections
+
+- **Entrées du rail en double** (Saisie, IA liées, Historique… aussi dans Places) : le glisser-déposer du rail remplaçait de mauvaises cases quand les entrées du bas (Système, Thèmes, Places, À propos) étaient mêlées aux autres dans l’ordre enregistré. Corrigé, et les doublons déjà enregistrés sont nettoyés au démarrage.
+- **Rien ne sort de l’interface** : une application qui impose une taille minimale plus grande que sa tuile (OpenBot, CineVR…) est découpée à la taille de la tuile, sans toucher à son contenu. Sa taille minimale est retenue : si la disposition ne peut pas la respecter, les tuiles passent en plein cadre avec onglets.
+- **Fermer une application depuis sa propre fenêtre** la retire aussi de Better, y compris quand l’application se cache au lieu de se fermer. Sa place d’origine est rendue.
+- Une application trop grande n’est plus redimensionnée en boucle.
+
+## Nouveau
+
+- Bouton **Fenêtre** dans la barre du haut, à gauche d’« Espaces » : ajoute une fenêtre en tuile depuis n’importe où.
+
 # Better GrokBot 1.7.1
 
 Les tuiles, revues dans le détail : à leur place, dans le thème, et pilotables sans passer par un menu.
