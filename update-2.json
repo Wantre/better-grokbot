@@ -1,9 +1,9 @@
 {
-  "version": "1.6.0",
-  "notes": "Votre application au centre de Better GrokBot, et la connexion de compte des fournisseurs.",
-  "sha256": "59da74918a39f2036047ff59e5df241fb5d507d7f8c46c3e55eab1c559bc22d6",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.6.0/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.6.0/Better-GrokBot-1.6.0-Windows.zip",
-  "fullSha256": "f7f30508f533fbe56b1ee64d53027e776fc58ef1be43a97dcf2f50992ee5733e",
+  "version": "1.7.0",
+  "notes": "Better devient un poste de travail : vos applications en tuiles à côté de Grok, un terminal, un explorateur de fichiers, des extensions Chrome et un agent IA qui agit sous votre contrôle.",
+  "sha256": "eed8061c4b02e1a5fa4c9307eef886c99cf1aa37b931302b686aa85fa2c59354",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.0/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.0/Better-GrokBot-1.7.0-Windows.zip",
+  "fullSha256": "dee8b6bcf8f430852ec2170edb3d5c2579a5bce6e66081d0597a3716a09b94b1",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
