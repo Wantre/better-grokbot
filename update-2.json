@@ -1,9 +1,9 @@
 {
-  "version": "1.5.2",
-  "notes": "1.5.2 : le pont local (BetterGrokBot.exe) est installé avec la mise à jour. Les boutons du pont ne signalent plus qu’il est introuvable. La notification n’apparaît que lorsque tous les fichiers de la version sont en ligne.",
-  "sha256": "5960273a6ed18e519d5332ce42d7dacc13cc6d32013c9416b6d4ed5ad73e4d84",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.2/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.5.2/Better-GrokBot-1.5.2-Windows.zip",
-  "fullSha256": "05445919077160dfa7acf55d138762e4d8613d20ff85b86c2fcb88b592189c5d",
+  "version": "1.6.0",
+  "notes": "Votre application au centre de Better GrokBot, et la connexion de compte des fournisseurs.",
+  "sha256": "59da74918a39f2036047ff59e5df241fb5d507d7f8c46c3e55eab1c559bc22d6",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.6.0/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.6.0/Better-GrokBot-1.6.0-Windows.zip",
+  "fullSha256": "f7f30508f533fbe56b1ee64d53027e776fc58ef1be43a97dcf2f50992ee5733e",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
