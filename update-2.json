@@ -1,9 +1,9 @@
 {
-  "version": "1.7.0",
-  "notes": "Better devient un poste de travail : vos applications en tuiles à côté de Grok, un terminal, un explorateur de fichiers, des extensions Chrome et un agent IA qui agit sous votre contrôle.",
-  "sha256": "eed8061c4b02e1a5fa4c9307eef886c99cf1aa37b931302b686aa85fa2c59354",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.0/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.0/Better-GrokBot-1.7.0-Windows.zip",
-  "fullSha256": "dee8b6bcf8f430852ec2170edb3d5c2579a5bce6e66081d0597a3716a09b94b1",
+  "version": "1.7.1",
+  "notes": "Les tuiles, revues dans le détail : à leur place, dans le thème, et pilotables sans passer par un menu.",
+  "sha256": "d1e91941332b24632250d55b349f8be73411aa3afe25259731abd208e3af7625",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.1/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.1/Better-GrokBot-1.7.1-Windows.zip",
+  "fullSha256": "04907b4b9890067632ff5a2e3536b13f18abd220c1c808ae346b91cc365e2cdf",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
