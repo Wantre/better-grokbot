@@ -1,3 +1,24 @@
+# Better GrokBot 1.7.1
+
+Les tuiles, revues dans le détail : à leur place, dans le thème, et pilotables sans passer par un menu.
+
+## Tuiles
+
+- **Barres de titre au bon endroit** : elles passaient sous les fenêtres. Le cadre d’une tuile héritait du style des vignettes du panneau Outils ; il a désormais le sien, et chaque fenêtre se place exactement sous la barre dessinée.
+- **Dans le thème** : barres de titre, anneau braise sur la tuile active, vraie icône de chaque application, titre qui suit celui de la fenêtre.
+- **Barre des tuiles** au-dessus de la zone (elle remplace le bouton « Maître » isolé en haut à droite) : espaces 1 à 9 et nouvel espace, cinq dispositions, fenêtres réduites, ajouter une fenêtre, terminal, réaligner, tout réduire, raccourcis, quitter les tuiles. En place étroite, elle se compacte : un clic sur la disposition active passe à la suivante.
+- **Réduire** chaque tuile, Grok compris ; elle se retrouve dans la barre, un clic la rétablit. « Tout réduire » vide l’espace et « Tout rétablir » le remplit.
+- **Quatre boutons par tuile** (vision IA, réduire, plein cadre, fermer) et un menu ⋯ : piloter avec l’agent, capture au Chat IA, flottante, envoyer vers un espace, décrocher.
+- **Glisser** la barre d’une tuile sur une autre pour les échanger, ou sur un numéro d’espace pour l’y envoyer.
+- **Ajouter une fenêtre** (bouton +, Alt+Maj+A ou Ctrl+Maj+G) : une seule liste avec recherche pour les fenêtres ouvertes, les terminaux et les applications installées ; elle se ferme après le choix.
+- Pendant un menu de Better, chaque tuile montre sa dernière image au lieu d’un cadre vide.
+- Colonnes et grille restent visibles plus longtemps ; quand la place manque vraiment, un message explique le passage en plein cadre avec onglets.
+- Panneau Apps simplifié : vos espaces, Bureau, sessions, règles avancées repliées, extensions.
+
+## Agent dans le Chat IA
+
+- L’agent n’a plus de volet à part : un bouton « Mode agent » dans la zone de saisie du Chat IA, la cible (page Web ou tuile) et le niveau juste au-dessus, les étapes et les confirmations dans le fil. Il utilise l’IA choisie dans le chat.
+
 # Better GrokBot 1.7.0
 
 Better devient un poste de travail : vos applications en tuiles à côté de Grok, un terminal, un explorateur de fichiers, des extensions Chrome et un agent IA qui agit sous votre contrôle.
