@@ -1,9 +1,9 @@
 {
-  "version": "1.7.1",
-  "notes": "Les tuiles, revues dans le détail : à leur place, dans le thème, et pilotables sans passer par un menu.",
-  "sha256": "d1e91941332b24632250d55b349f8be73411aa3afe25259731abd208e3af7625",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.1/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.1/Better-GrokBot-1.7.1-Windows.zip",
-  "fullSha256": "04907b4b9890067632ff5a2e3536b13f18abd220c1c808ae346b91cc365e2cdf",
+  "version": "1.7.2",
+  "notes": "- **Entrées du rail en double** (Saisie, IA liées, Historique… aussi dans Places) : le glisser-déposer du rail remplaçait de mauvaises cases quand les entrées du bas (Système, Thèmes, Places, À propos) étaient mêlées aux autres dans l’ordre enregistré. Corrigé, et les doublons déjà enregistrés sont nettoyés au démarrage.",
+  "sha256": "5f5f90b8729bc7506351e63333342d0694b9ff471f76ae8f66ef5d465f4cdf28",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.2/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.2/Better-GrokBot-1.7.2-Windows.zip",
+  "fullSha256": "9f8db523fb9a2aa3769cb23d3282b30b3abf21289c8571c34b9f85c4c6dade79",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
