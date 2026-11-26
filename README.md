@@ -25,6 +25,13 @@ Le fichier n’est pas signé : Windows peut afficher SmartScreen (« Windows a 
 
 **Depuis la 1.3** : le bouton de mise à jour de la 1.3 ne peut pas passer en 1.4. Lancez Patch-GrokBot.exe : vos réglages, notes et prompts sont gardés.
 
+## Nouveau dans la 1.6
+
+- **Apps au centre** (<kbd>Ctrl</kbd> <kbd>Maj</kbd> <kbd>G</kbd>) : une fenêtre de votre PC prend la place de Grok et reste utilisable. « Décrocher » rend Grok.
+- **Vision IA** : coupée par défaut. Activée, chaque message du Chat IA emporte une capture de la seule fenêtre accrochée (Cursor, Claude, Codex).
+- **Connexion du compte** : un bouton dans le Pont ouvre la connexion du fournisseur (lien, code ou console). Better ne voit aucun mot de passe.
+- **Rail** réorganisable par glisser-déposer. Le bouton « Installer » disparaît une fois le programme installé.
+
 ## Nouveau dans la 1.5
 
 | | |

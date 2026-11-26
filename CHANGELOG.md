@@ -1,3 +1,30 @@
+# Better GrokBot 1.6.0
+
+Votre application au centre de Better GrokBot, et la connexion de compte des fournisseurs.
+
+## Apps
+
+- Nouvelle entrée « Apps » dans le rail, ou Ctrl+Maj+G : choisissez une fenêtre ouverte, elle prend la place de Grok au centre et reste utilisable. « Décrocher » rend Grok et remet la fenêtre à sa place d’origine.
+- La fenêtre est seulement déplacée et suivie. Quand un menu de Better s’ouvre, elle passe derrière ; quand Grok est réduit, elle l’est aussi. Si Grok se ferme, sa place d’origine est rendue.
+- Vision IA coupée par défaut. Une fois activée, indicateur rouge visible : chaque message du Chat IA emporte une capture de cette fenêtre, et d’elle seule. « Capture au Chat IA » en joint une à la demande.
+- La lecture des captures marche avec Cursor, Claude et Codex. Pour Claude et Codex, le programme officiel est appelé directement, dans un dossier temporaire qui ne contient que les captures jointes.
+- Les applications lancées en administrateur ne peuvent pas être accrochées.
+
+## Fournisseurs
+
+- Bouton « Connexion du compte » dans le Pont : lien à ouvrir, code à copier ou à coller, compte à rebours de 10 minutes. Better ne voit aucun mot de passe : c’est le programme officiel qui se connecte.
+- L’état du compte s’affiche sur la carte quand le programme sait le dire (Claude, Cursor, Codex).
+- Corrigé : le bouton « Installer » restait affiché après l’installation.
+
+## Rail
+
+- Les entrées se réordonnent par glisser-déposer.
+
+## Fiabilité
+
+- Le test des clés de stockage contrôle de nouveau le code : il passait sans rien vérifier.
+- release.mjs prépare les fichiers d’une version, contrôle les versions et refuse tout secret.
+
 # Better GrokBot 1.5.2
 
 Le pont local manquait lorsqu’un autre ordinateur n’avait reçu que le patcher. L’écran Plugins affichait « BetterGrokBot.exe est introuvable ».
