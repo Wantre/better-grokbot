@@ -1,3 +1,44 @@
+# Better GrokBot 1.7.0
+
+Better devient un poste de travail : vos applications en tuiles à côté de Grok, un terminal, un explorateur de fichiers, des extensions Chrome et un agent IA qui agit sous votre contrôle.
+
+## Tuiles, façon Hyprland
+
+- Plusieurs applications accrochées en même temps, avec Grok, rangées automatiquement : spirale, maître, colonnes, grille ou plein cadre avec onglets.
+- Neuf espaces de travail (Alt+Maj+1 à 9) ; Ctrl+Alt+Maj+chiffre envoie la tuile active vers un autre espace.
+- Clavier : Alt+Maj+flèches pour changer de tuile, avec Ctrl pour les échanger ; F plein cadre, Espace flottante, L disposition, Q fermer, Entrée terminal, S tiroir, R redimensionner, G réaligner. Ces raccourcis marchent aussi quand une tuile a le focus.
+- Glisser la barre d’une tuile pour l’échanger avec une autre, tirer les séparations pour changer les proportions (double-clic pour revenir à l’égal).
+- Tuiles flottantes déplaçables et redimensionnables, tiroir (scratchpad) pour un terminal qui apparaît et disparaît.
+- Règles de fenêtres (espace et flottante selon le programme), écart réglable, sessions enregistrées et restaurées.
+- Lancer une application installée directement dans une tuile, depuis le panneau Apps ou la palette.
+
+## Stabilité et tailles
+
+- Le moteur des fenêtres replace et redessine les tuiles dès votre retour sur Better, sans attendre l’interface, et Better n’est plus ralenti en arrière-plan tant que des tuiles sont ouvertes.
+- Bouton et raccourci « Réaligner ».
+- Une application qui ne répond plus est signalée sur sa tuile.
+- Quand la place manque, les tuiles passent en plein cadre avec onglets au lieu de se tasser.
+
+## Terminal et fichiers
+
+- Terminal en tuile : PowerShell, PowerShell 7, invite de commandes, Git Bash, WSL, et Claude Code, Codex ou Cursor s’ils sont reliés.
+- Explorateur de fichiers dans le volet de droite (Ctrl+Maj+X) : favoris et lecteurs, aperçu des textes et images, recherche, renommer, nouveau dossier, copier, couper, coller, terminal ici, joindre au Chat IA. Une suppression va toujours dans la Corbeille.
+
+## Extensions Chrome
+
+- Le volet Web accepte des extensions : lien du Chrome Web Store, fichier .crx ou dossier décompressé. Options et page de l’extension s’ouvrent dans le volet. Electron ne prend en charge qu’une partie des fonctions d’extension ; pour toutes, accrochez votre navigateur habituel en tuile.
+
+## Agent IA
+
+- Une IA (celle choisie dans le Chat IA) voit une tuile ou la page du volet Web, propose une action à la fois, et agit : clic, saisie, touche, défilement, adresse.
+- Niveau Assisté : vous confirmez chaque action. Niveau Encadré : 15 actions au plus, les actions sensibles (envoyer, publier, supprimer, payer…) restent à confirmer.
+- Cadre rouge autour de la tuile pilotée, arrêt avec Alt+Maj+X ou Échap, journal sur ce PC.
+- L’agent ne remplit jamais un mot de passe, refuse les sites de banque et de paiement et les gestionnaires de mots de passe, et traite le contenu vu comme une donnée, jamais comme un ordre.
+
+## Mode Bureau
+
+- Plein écran, démarrage avec Windows en option, processeur et mémoire dans la barre des espaces.
+
 # Better GrokBot 1.6.0
 
 Votre application au centre de Better GrokBot, et la connexion de compte des fournisseurs.

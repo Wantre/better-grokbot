@@ -25,6 +25,14 @@ Le fichier n’est pas signé : Windows peut afficher SmartScreen (« Windows a 
 
 **Depuis la 1.3** : le bouton de mise à jour de la 1.3 ne peut pas passer en 1.4. Lancez Patch-GrokBot.exe : vos réglages, notes et prompts sont gardés.
 
+## Nouveau dans la 1.7
+
+- **Tuiles façon Hyprland** : plusieurs applications avec Grok, neuf espaces, cinq dispositions, raccourcis Alt+Maj, fenêtres flottantes, sessions et règles.
+- **Terminal et explorateur de fichiers** intégrés (Ctrl+Maj+X).
+- **Extensions Chrome** dans le volet Web (lien du Web Store, .crx ou dossier), prise en charge partielle.
+- **Agent IA** : il voit une tuile ou une page, propose une action, vous confirmez ; jamais de mot de passe, ni de banque.
+- **Mode Bureau** : plein écran et démarrage avec Windows.
+
 ## Nouveau dans la 1.6
 
 - **Apps au centre** (<kbd>Ctrl</kbd> <kbd>Maj</kbd> <kbd>G</kbd>) : une fenêtre de votre PC prend la place de Grok et reste utilisable. « Décrocher » rend Grok.
