@@ -1,9 +1,9 @@
 {
-  "version": "1.7.7",
-  "notes": "- **Plus de clignotement blanc** (Roblox et autres) : quand une application n’acceptait pas exactement la taille de sa tuile, Better la redimensionnait sans fin, environ 21 fois par seconde, en effaçant son fond. Il propose maintenant la taille pendant un court instant puis accepte celle de l’application. Au repos, une application accrochée ne reçoit plus rien.",
-  "sha256": "bd8fcc0f939b60a634793a959ada6701b05abbf148449f7e2455ad9e85ad7eaa",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.7/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.7/Better-GrokBot-1.7.7-Windows.zip",
-  "fullSha256": "1beee3c3a3a7ca49ad7ce6ce61c4f951c944d7e4a64935dbd1c15fc877c8ef28",
+  "version": "1.7.8",
+  "notes": "- **Nouveau bloqueur de publicités** dans le volet Web : il utilise de vraies listes de filtres (EasyList, EasyPrivacy, Peter Lowe, Liste FR, HaGeZi Light), mises à jour automatiquement. Il coupe les requêtes publicitaires et masque les encarts sur les pages. Sur adblock.turtlecute.org, notre essai passe de 41 à 125 éléments bloqués sur 130.",
+  "sha256": "d3e6be9a27c01197322457a83fb47ad9e6ade3a03104cad0f2edf61ed24615e2",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.8/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.8/Better-GrokBot-1.7.8-Windows.zip",
+  "fullSha256": "891261e5d8eaac6a3daace4690aa448c1fb3fd0320ab0488e37574888a4cb8ac",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
