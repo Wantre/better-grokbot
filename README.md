@@ -33,14 +33,15 @@ Le fichier n’est pas signé : Windows peut afficher SmartScreen (« Windows a 
 - **Agent IA** : il voit une tuile ou une page, propose une action, vous confirmez ; jamais de mot de passe, ni de banque.
 - **Mode Bureau** : plein écran et démarrage avec Windows.
 
-### De la 1.7.1 à la 1.7.8
+### De la 1.7.1 à la 1.7.9
 
 - **Tuiles repensées** : Barres de titre dans le thème, barre des tuiles, réduction, menu par tuile et bouton « Fenêtre » avec recherche. L’agent IA est désormais dans le Chat IA.
 - **Chaque application dans sa tuile** : La taille minimale de chaque application est respectée. Pendant un redimensionnement ou un déplacement, une image floutée remplace la fenêtre.
 - **Plus stable** : Les fenêtres ne disparaissent plus quand vous cliquez sur Better, les onglets répondent, et le clignotement blanc après un redimensionnement est corrigé. La notification de disposition reste visible.
 - **Disposition mémorisée** : À la réouverture de Better, les applications accrochées qui sont encore ouvertes reprennent leur place. Aucune application n’est lancée pour cela.
-- **Bloqueur de publicités** : Il utilise EasyList, EasyPrivacy et d’autres listes, mises à jour automatiquement : 125 éléments bloqués sur 130 lors de notre essai sur adblock.turtlecute.org. Certaines publicités, comme des vidéos YouTube, peuvent passer.
+- **Bloqueur de publicités** : Il utilise EasyList, EasyPrivacy et d’autres listes, mises à jour automatiquement : 125 éléments bloqués sur 130 lors de notre essai sur adblock.turtlecute.org. Depuis la 1.7.9, il retire aussi les pubs des vidéos YouTube (aucune lors de notre essai sur trois vidéos ; YouTube change souvent).
 - **Menu Extensions** : Liste, recherche et import, avec un bouton « Installer dans Better » sur le Chrome Web Store. La prise en charge reste partielle : les extensions de blocage comme uBlock Origin Lite ne bloquent pas, le bloqueur intégré les remplace.
+- **Plus simple à manier** : Onglets Web toujours visibles, séparations des tuiles à tirer même sans écart, et une application glissée sur Better s’y accroche, avec un aperçu de sa place.
 
 ## Nouveau dans la 1.6
 
