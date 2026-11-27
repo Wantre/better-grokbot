@@ -1,3 +1,11 @@
+# Better GrokBot 1.7.9
+
+- **Pubs des vidéos YouTube** : le bloqueur retire les annonces de la réponse du lecteur avant que la page ne les lise, saute celle qui passerait quand même et masque les emplacements publicitaires. Lors de notre essai sur trois vidéos, aucune pub ne s’est lancée. YouTube change souvent : une annonce peut réapparaître.
+- **Plusieurs pages web** : la barre d’onglets et son bouton « + » sont toujours visibles (jusqu’à 24 onglets). Clic du milieu pour fermer un onglet, Ctrl+clic sur un favori pour l’ouvrir à part.
+- **Redimensionner les tuiles** sans agrandir l’écart : une poignée apparaît par-dessus les applications quand la souris approche d’une séparation, même avec un écart nul. Les colonnes, la grille et la pile du mode « Maître » sont désormais réglables. Double-clic pour égaliser.
+- **Glisser pour accrocher** : glissez une fenêtre sur Better, un aperçu montre où elle se rangera et ce que deviennent les autres tuiles ; lâchez pour l’accrocher. Ctrl maintenu pour la déplacer sans l’accrocher, réglable dans Apps > Bureau.
+- **Écart entre les tuiles** : nouveau réglage avec valeur, aperçu et choix rapides.
+
 # Better GrokBot 1.7.8
 
 - **Nouveau bloqueur de publicités** dans le volet Web : il utilise de vraies listes de filtres (EasyList, EasyPrivacy, Peter Lowe, Liste FR, HaGeZi Light), mises à jour automatiquement. Il coupe les requêtes publicitaires et masque les encarts sur les pages. Sur adblock.turtlecute.org, notre essai passe de 41 à 125 éléments bloqués sur 130.
