@@ -1,9 +1,9 @@
 {
-  "version": "1.7.8",
-  "notes": "- **Nouveau bloqueur de publicités** dans le volet Web : il utilise de vraies listes de filtres (EasyList, EasyPrivacy, Peter Lowe, Liste FR, HaGeZi Light), mises à jour automatiquement. Il coupe les requêtes publicitaires et masque les encarts sur les pages. Sur adblock.turtlecute.org, notre essai passe de 41 à 125 éléments bloqués sur 130.",
-  "sha256": "d3e6be9a27c01197322457a83fb47ad9e6ade3a03104cad0f2edf61ed24615e2",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.8/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.8/Better-GrokBot-1.7.8-Windows.zip",
-  "fullSha256": "891261e5d8eaac6a3daace4690aa448c1fb3fd0320ab0488e37574888a4cb8ac",
+  "version": "1.7.9",
+  "notes": "- **Pubs des vidéos YouTube** : le bloqueur retire les annonces de la réponse du lecteur avant que la page ne les lise, saute celle qui passerait quand même et masque les emplacements publicitaires. Lors de notre essai sur trois vidéos, aucune pub ne s’est lancée. YouTube change souvent : une annonce peut réapparaître.",
+  "sha256": "839543992b2bc2c208b3118368a0d60f8c78ebc627d5ba5a52e25393ef13f40a",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.9/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.9/Better-GrokBot-1.7.9-Windows.zip",
+  "fullSha256": "2c27933fabb4b0fb5aec06823740b497ce7eb4ae3a34e59f249b7dee377f3ef1",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
