@@ -1,3 +1,10 @@
+# Better GrokBot 1.7.4
+
+- **Les fenêtres accrochées ne disparaissent plus quand vous cliquez sur Better** : le moteur essayait de les poser au-dessus de la fenêtre active, ce que Windows refuse. Une application réduite par Windows est aussi rouverte au retour sur Better.
+- **Plein cadre et redimensionnement** : Better laisse à l’application le temps de changer de taille avant de la découper, et lui demande de redessiner son contenu une fois la taille posée.
+- **Bloqueur de publicités et de pisteurs** dans le volet Web, activé par défaut. Il bloque les régies connues, pas les publicités vidéo intégrées au site (YouTube).
+- **Menu Extensions** refait comme dans un navigateur : protection, extensions installées avec icône, interrupteur, options et retrait, puis ajout avec recherche, Chrome Web Store et import.
+
 # Better GrokBot 1.7.3
 
 - **Better ne passe plus derrière les autres fenêtres** : quand une application accrochée avait la main, Better pouvait être rangé au fond de la pile.
