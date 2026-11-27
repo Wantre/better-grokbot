@@ -1,9 +1,9 @@
 {
-  "version": "1.7.3",
-  "notes": "- **Better ne passe plus derrière les autres fenêtres** : quand une application accrochée avait la main, Better pouvait être rangé au fond de la pile.",
-  "sha256": "28873145d90804522156e5a38c15aa444d1eb9eac7a2a425dc60bda4d5c0ab53",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.3/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.3/Better-GrokBot-1.7.3-Windows.zip",
-  "fullSha256": "ce9bbb1bf6a6802a9ee0aa299d9b4e41b8dfa612499cbcc9b1a36b41e8e51977",
+  "version": "1.7.4",
+  "notes": "- **Les fenêtres accrochées ne disparaissent plus quand vous cliquez sur Better** : le moteur essayait de les poser au-dessus de la fenêtre active, ce que Windows refuse. Une application réduite par Windows est aussi rouverte au retour sur Better.",
+  "sha256": "65989679e3a5f4de511635e596860286ca74f57617e7cc9a3071663545aef1be",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.4/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.4/Better-GrokBot-1.7.4-Windows.zip",
+  "fullSha256": "f9c92400f82a85ebe1882940de71652375802ef4558050dc3c1ea59b14ebe2eb",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
