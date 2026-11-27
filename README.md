@@ -33,6 +33,15 @@ Le fichier n’est pas signé : Windows peut afficher SmartScreen (« Windows a 
 - **Agent IA** : il voit une tuile ou une page, propose une action, vous confirmez ; jamais de mot de passe, ni de banque.
 - **Mode Bureau** : plein écran et démarrage avec Windows.
 
+### De la 1.7.1 à la 1.7.8
+
+- **Tuiles repensées** : Barres de titre dans le thème, barre des tuiles, réduction, menu par tuile et bouton « Fenêtre » avec recherche. L’agent IA est désormais dans le Chat IA.
+- **Chaque application dans sa tuile** : La taille minimale de chaque application est respectée. Pendant un redimensionnement ou un déplacement, une image floutée remplace la fenêtre.
+- **Plus stable** : Les fenêtres ne disparaissent plus quand vous cliquez sur Better, les onglets répondent, et le clignotement blanc après un redimensionnement est corrigé. La notification de disposition reste visible.
+- **Disposition mémorisée** : À la réouverture de Better, les applications accrochées qui sont encore ouvertes reprennent leur place. Aucune application n’est lancée pour cela.
+- **Bloqueur de publicités** : Il utilise EasyList, EasyPrivacy et d’autres listes, mises à jour automatiquement : 125 éléments bloqués sur 130 lors de notre essai sur adblock.turtlecute.org. Certaines publicités, comme des vidéos YouTube, peuvent passer.
+- **Menu Extensions** : Liste, recherche et import, avec un bouton « Installer dans Better » sur le Chrome Web Store. La prise en charge reste partielle : les extensions de blocage comme uBlock Origin Lite ne bloquent pas, le bloqueur intégré les remplace.
+
 ## Nouveau dans la 1.6
 
 - **Apps au centre** (<kbd>Ctrl</kbd> <kbd>Maj</kbd> <kbd>G</kbd>) : une fenêtre de votre PC prend la place de Grok et reste utilisable. « Décrocher » rend Grok.
@@ -87,7 +96,7 @@ Les captures sont réelles ; la conversation Grok y est floutée.
 | **Pont** | L’état du serveur local, les CLI trouvées sur le PC et le modèle assigné à chaque agent. Les clés collées restent chiffrées. |
 | **Quotas** | Le pourcentage Grok et la date de réinitialisation, puis la jauge de chaque pont lié quand sa CLI publie un chiffre. |
 | **Chat IA** | Un volet de chat complet pour parler aux IA reliées (Cursor, Codex, Claude Code…) : choix du modèle avec logos, conversations gardées sur le PC, Markdown, comparaison côte à côte. |
-| **Navigateur Web** | Un volet Web à côté de Grok. Le sélecteur envoie un élément de la page, avec son image, dans le champ de saisie. |
+| **Navigateur Web** | Un volet Web à côté de Grok, avec bloqueur de publicités intégré. Le sélecteur envoie un élément de la page, avec son image, dans le champ de saisie. |
 | **Mises à jour** | Téléchargement, vérification sha256, fermeture, patch et relance, avec un voile de transition. Mise à jour automatique en option, quand rien ne tourne. |
 | **Palettes** | Braise, Aube et Nuit, appliquées tout de suite. Grain, décor et animations se règlent à part. |
 

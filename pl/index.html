@@ -393,7 +393,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
   .foot{grid-template-columns:1fr}
   .legal{flex-direction:column}
 }
-.lang-pick{position:relative;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 10px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--ink);font-size:14px}.lang-pick select{appearance:none;-webkit-appearance:none;background:transparent;border:0;color:inherit;font:inherit;cursor:pointer;padding-right:2px}.lang-pick select option{background:#141417;color:#f6f5f3}.lang-pick:focus-within{box-shadow:inset 0 0 0 2px var(--acc)}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}@media (max-width:640px){.lang-pick{width:36px;padding:0;justify-content:center}.lang-pick select{position:absolute;inset:0;opacity:0;width:100%;height:100%}}</style>
+.lang-pick{position:relative;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 10px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--ink);font-size:14px}.lang-pick select{appearance:none;-webkit-appearance:none;background:transparent;border:0;color:inherit;font:inherit;cursor:pointer;padding-right:2px}.lang-pick select option{background:#141417;color:#f6f5f3}.lang-pick:focus-within{box-shadow:inset 0 0 0 2px var(--acc)}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}@media (max-width:640px){.lang-pick{width:36px;padding:0;justify-content:center}.lang-pick select{position:absolute;inset:0;opacity:0;width:100%;height:100%}}.up17-t{margin:0 0 20px;font-size:20px;line-height:28px}.up17{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}.up17 li{padding:22px 24px;border-radius:var(--r-xl);background:var(--s1);box-shadow:inset 0 0 0 1px var(--line)}.up17 b{display:block;font-size:17px;margin-bottom:8px}.up17 span{display:block;color:var(--ink-2);font-size:15px;line-height:23px}
+</style>
 <link href="https://wantre.github.io/better-grokbot/" hreflang="fr" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/en/" hreflang="en" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/es/" hreflang="es" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/de/" hreflang="de" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/it/" hreflang="it" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/pt/" hreflang="pt" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/nl/" hreflang="nl" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/pl/" hreflang="pl" rel="alternate"/><link href="https://wantre.github.io/better-grokbot/" hreflang="x-default" rel="alternate"/><link rel="alternate" hreflang="fr" href="https://wantre.github.io/better-grokbot/"><link rel="alternate" hreflang="en" href="https://wantre.github.io/better-grokbot/en/"><link rel="alternate" hreflang="es" href="https://wantre.github.io/better-grokbot/es/"><link rel="alternate" hreflang="de" href="https://wantre.github.io/better-grokbot/de/"><link rel="alternate" hreflang="it" href="https://wantre.github.io/better-grokbot/it/"><link rel="alternate" hreflang="pt" href="https://wantre.github.io/better-grokbot/pt/"><link rel="alternate" hreflang="nl" href="https://wantre.github.io/better-grokbot/nl/"><link rel="alternate" hreflang="pl" href="https://wantre.github.io/better-grokbot/pl/"><link rel="alternate" hreflang="x-default" href="https://wantre.github.io/better-grokbot/">
 </head>
 <body>
@@ -432,7 +433,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
 <div class="wrap">
 <div class="hero-top">
 <div>
-<span class="ver hero-fade"><i aria-hidden="true"></i>Wersja <span data-bgb-v="short">1.5</span>: osiem języków, izolowane wtyczki, kreator i galeria</span>
+<span class="ver hero-fade"><i aria-hidden="true"></i>Wersja <span data-bgb-v="short">1.7</span>: kafelki, terminal, rozszerzenia i blokada reklam</span>
 <h1 class="h1" id="titre"><span class="ln"><span>Grok Bot,</span></span><span class="ln"><span>ze wszystkim,</span></span><span class="ln"><span>czego mu brakowało.</span></span></h1>
 <p class="hero-sub hero-fade">Better GrokBot to <strong>prywatna kopia</strong> Grok Bot. Dodaje szynę nawigacyjną, <strong> Czat AI </strong> i przeglądarkę internetową obok rozmowy, paletę <kbd>Ctrl</kbd> <kbd>K</kbd>, pasek Odpowiada do wysyłania wiadomości do Cursor, Claude lub Codex, przydziały na żywo i aktualizacje, które instalują się samodzielnie. Oryginalna instalacja pozostaje nienaruszona.</p>
 <div class="hero-act hero-fade">
@@ -492,6 +493,15 @@ footer{border-top:1px solid var(--line);padding:48px 0 40px}
         <p class="lede">Układaj aplikacje w kafelki obok Groka, jak w Hyprland: dziewięć obszarów, układy, skróty, pływające okna. Wbudowany terminal i eksplorator plików, rozszerzenia Chrome w panelu Web oraz agent AI, który klika i pisze za Ciebie, po Twoim potwierdzeniu.</p>
       </div>
     </div>
+    <h3 class="up17-t rv">A od tego czasu, aż do 1.7.8:</h3>
+    <ul class="up17">
+      <li class="rv"><b>Nowe kafelki</b><span>Paski tytułu w motywie, pasek kafelków, minimalizacja, menu na każdym kafelku i przycisk „Okno” z wyszukiwaniem. Agent AI jest teraz w Czacie AI.</span></li>
+      <li class="rv"><b>Każda aplikacja w swoim kafelku</b><span>Minimalny rozmiar każdej aplikacji jest respektowany. Podczas zmiany rozmiaru lub przesuwania okno zastępuje rozmyty obraz.</span></li>
+      <li class="rv"><b>Większa stabilność</b><span>Okna nie znikają po kliknięciu w Better, karty reagują, a białe miganie po zmianie rozmiaru zostało naprawione. Powiadomienie o układzie jest widoczne.</span></li>
+      <li class="rv"><b>Zapamiętany układ</b><span>Po ponownym otwarciu Better zadokowane aplikacje, które są nadal otwarte, wracają na swoje miejsce. Żadna aplikacja nie jest w tym celu uruchamiana.</span></li>
+      <li class="rv"><b>Blokada reklam</b><span>Korzysta z EasyList, EasyPrivacy i innych list aktualizowanych automatycznie: 125 ze 130 elementów zablokowanych w naszym teście na adblock.turtlecute.org. Niektóre reklamy, np. wideo na YouTube, mogą się pojawić.</span></li>
+      <li class="rv"><b>Menu rozszerzeń</b><span>Lista, wyszukiwanie i import oraz „Zainstaluj w Better” w Chrome Web Store. Obsługa jest częściowa: rozszerzenia blokujące, jak uBlock Origin Lite, nie blokują; zastępuje je wbudowana blokada.</span></li>
+    </ul>
   </div>
 </section>
 
