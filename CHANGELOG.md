@@ -1,3 +1,8 @@
+# Better GrokBot 1.7.5
+
+- **Onglets en plein cadre** : un clic sur Grok ou sur une autre application change maintenant de fenêtre. Les onglets étaient reconstruits en continu et disparaissaient avant la fin du clic.
+- Le même défaut est corrigé pour les numéros d’espace et les fenêtres réduites dans la barre des tuiles.
+
 # Better GrokBot 1.7.4
 
 - **Les fenêtres accrochées ne disparaissent plus quand vous cliquez sur Better** : le moteur essayait de les poser au-dessus de la fenêtre active, ce que Windows refuse. Une application réduite par Windows est aussi rouverte au retour sur Better.
