@@ -1,3 +1,10 @@
+# Better GrokBot 1.7.7
+
+- **Plus de clignotement blanc** (Roblox et autres) : quand une application n’acceptait pas exactement la taille de sa tuile, Better la redimensionnait sans fin, environ 21 fois par seconde, en effaçant son fond. Il propose maintenant la taille pendant un court instant puis accepte celle de l’application. Au repos, une application accrochée ne reçoit plus rien.
+- Le fond n’est plus jamais effacé par un redessin, et les images floutées sont découpées dans une capture de l’écran, sans interroger les applications.
+- **Disposition mémorisée** : à la réouverture de Better, les applications que vous aviez accrochées et qui sont ouvertes sur le PC reprennent leur espace, leur ordre, leurs proportions et leur état (flottante, réduite). Rien n’est lancé ; une application fermée reste retenue pour la fois suivante. Réglable dans Apps > Bureau.
+- Une mise à jour n’écrase plus un dossier de travail suivi par Git.
+
 # Better GrokBot 1.7.6
 
 - **Plus de vide gris ni de débordement** : la découpe est supprimée. Better lit la taille minimale de chaque application dès l’accrochage et la disposition la respecte, en prenant la place sur les voisines ou en réarrangeant les tuiles. Les onglets n’arrivent que si rien ne tient. Quand un volet ou une petite fenêtre ne laisse pas assez de place, la tuile l’indique au lieu de laisser l’application dépasser.
