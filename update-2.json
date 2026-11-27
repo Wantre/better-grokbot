@@ -1,9 +1,9 @@
 {
-  "version": "1.7.4",
-  "notes": "- **Les fenêtres accrochées ne disparaissent plus quand vous cliquez sur Better** : le moteur essayait de les poser au-dessus de la fenêtre active, ce que Windows refuse. Une application réduite par Windows est aussi rouverte au retour sur Better.",
-  "sha256": "65989679e3a5f4de511635e596860286ca74f57617e7cc9a3071663545aef1be",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.4/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.4/Better-GrokBot-1.7.4-Windows.zip",
-  "fullSha256": "f9c92400f82a85ebe1882940de71652375802ef4558050dc3c1ea59b14ebe2eb",
+  "version": "1.7.5",
+  "notes": "- **Onglets en plein cadre** : un clic sur Grok ou sur une autre application change maintenant de fenêtre. Les onglets étaient reconstruits en continu et disparaissaient avant la fin du clic.",
+  "sha256": "d5b2667153945d55fb62ca6897c694a2fd8842815ce697b7833985c6aacc353c",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.5/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.5/Better-GrokBot-1.7.5-Windows.zip",
+  "fullSha256": "edba9a04f61179007a2feda092d8fd4d639ab1df1f221dfc3aa2c28932d1c3d1",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
