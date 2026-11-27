@@ -1,3 +1,10 @@
+# Better GrokBot 1.7.3
+
+- **Better ne passe plus derrière les autres fenêtres** : quand une application accrochée avait la main, Better pouvait être rangé au fond de la pile.
+- **Plus de plein cadre imposé** : la taille minimale d’une application ne bloque plus les dispositions ; ce qui dépasse est découpé à la tuile. Le double-clic sur une barre ne met plus en plein cadre, et tous les onglets restent accessibles.
+- Une tuile d’un autre espace ne repasse plus devant Better.
+- **Bouton Extensions** dans le volet Web : liste avec recherche et installation en un clic, lien du Chrome Web Store, import d’un .crx ou d’un dossier, recherche sur le Web Store. Discord s’ouvre comme application Web.
+
 # Better GrokBot 1.7.2
 
 ## Corrections
