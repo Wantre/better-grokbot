@@ -1,9 +1,9 @@
 {
-  "version": "1.7.2",
-  "notes": "- **Entrées du rail en double** (Saisie, IA liées, Historique… aussi dans Places) : le glisser-déposer du rail remplaçait de mauvaises cases quand les entrées du bas (Système, Thèmes, Places, À propos) étaient mêlées aux autres dans l’ordre enregistré. Corrigé, et les doublons déjà enregistrés sont nettoyés au démarrage.",
-  "sha256": "5f5f90b8729bc7506351e63333342d0694b9ff471f76ae8f66ef5d465f4cdf28",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.2/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.2/Better-GrokBot-1.7.2-Windows.zip",
-  "fullSha256": "9f8db523fb9a2aa3769cb23d3282b30b3abf21289c8571c34b9f85c4c6dade79",
+  "version": "1.7.3",
+  "notes": "- **Better ne passe plus derrière les autres fenêtres** : quand une application accrochée avait la main, Better pouvait être rangé au fond de la pile.",
+  "sha256": "28873145d90804522156e5a38c15aa444d1eb9eac7a2a425dc60bda4d5c0ab53",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.3/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.3/Better-GrokBot-1.7.3-Windows.zip",
+  "fullSha256": "ce9bbb1bf6a6802a9ee0aa299d9b4e41b8dfa612499cbcc9b1a36b41e8e51977",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
