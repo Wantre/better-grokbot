@@ -1,9 +1,9 @@
 {
-  "version": "1.7.9",
-  "notes": "- **Pubs des vidéos YouTube** : le bloqueur retire les annonces de la réponse du lecteur avant que la page ne les lise, saute celle qui passerait quand même et masque les emplacements publicitaires. Lors de notre essai sur trois vidéos, aucune pub ne s’est lancée. YouTube change souvent : une annonce peut réapparaître.",
-  "sha256": "839543992b2bc2c208b3118368a0d60f8c78ebc627d5ba5a52e25393ef13f40a",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.9/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.9/Better-GrokBot-1.7.9-Windows.zip",
-  "fullSha256": "2c27933fabb4b0fb5aec06823740b497ce7eb4ae3a34e59f249b7dee377f3ef1",
+  "version": "1.8.0",
+  "notes": "- La poignée de redimensionnement ne se voit plus : le curseur change au passage sur une séparation, et le geste reste le même.",
+  "sha256": "587384ef800ddcc9005e26d5557535ceef2d72fa7eeb00308209c12a6480f57d",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.8.0/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.8.0/Better-GrokBot-1.8.0-Windows.zip",
+  "fullSha256": "70d60bc52c520eb92cf74751e73d8702321e7bfe6cb43ccac40d8e1d3d6cd92e",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
