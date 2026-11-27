@@ -1,9 +1,9 @@
 {
-  "version": "1.7.5",
-  "notes": "- **Onglets en plein cadre** : un clic sur Grok ou sur une autre application change maintenant de fenêtre. Les onglets étaient reconstruits en continu et disparaissaient avant la fin du clic.",
-  "sha256": "d5b2667153945d55fb62ca6897c694a2fd8842815ce697b7833985c6aacc353c",
-  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.5/better-grokbot-patch.zip",
-  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.5/Better-GrokBot-1.7.5-Windows.zip",
-  "fullSha256": "edba9a04f61179007a2feda092d8fd4d639ab1df1f221dfc3aa2c28932d1c3d1",
+  "version": "1.7.6",
+  "notes": "- **Plus de vide gris ni de débordement** : la découpe est supprimée. Better lit la taille minimale de chaque application dès l’accrochage et la disposition la respecte, en prenant la place sur les voisines ou en réarrangeant les tuiles. Les onglets n’arrivent que si rien ne tient. Quand un volet ou une petite fenêtre ne laisse pas assez de place, la tuile l’indique au lieu de laisser l’application dépasser.",
+  "sha256": "164c188502cdea58edd7272a45c337aed3cc504f340c196de57fd2ef49cd790a",
+  "url": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.6/better-grokbot-patch.zip",
+  "full": "https://github.com/Wantre/better-grokbot/releases/download/v1.7.6/Better-GrokBot-1.7.6-Windows.zip",
+  "fullSha256": "32ce24c4ea7071c056f5b320a5ce158532202e73c7a0d7fb5ba77d963ec6fe5a",
   "patcher": "https://github.com/Wantre/better-grokbot/releases/latest/download/Patch-GrokBot.exe"
 }
