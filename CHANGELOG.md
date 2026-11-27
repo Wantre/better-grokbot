@@ -1,3 +1,10 @@
+# Better GrokBot 1.7.8
+
+- **Nouveau bloqueur de publicités** dans le volet Web : il utilise de vraies listes de filtres (EasyList, EasyPrivacy, Peter Lowe, Liste FR, HaGeZi Light), mises à jour automatiquement. Il coupe les requêtes publicitaires et masque les encarts sur les pages. Sur adblock.turtlecute.org, notre essai passe de 41 à 125 éléments bloqués sur 130.
+- **Extensions** : les scripts de page des extensions s’exécutent bien sur les sites (vérifié avec une extension de test). Les bloqueurs de type uBlock Origin Lite ne peuvent pas bloquer dans Better, faute d’une fonction qu’Electron ne fournit pas : Better le signale désormais et uBlock Origin Lite est retiré de la liste proposée.
+- **Chrome Web Store** : un bouton « Installer dans Better » apparaît sur la page d’une extension (le bouton « Ajouter à Chrome » de la page ne fonctionne pas dans Better).
+- **Tuiles** : la notification de changement de disposition s’affiche en haut, dans la barre de Better, au lieu d’être cachée derrière les applications.
+
 # Better GrokBot 1.7.7
 
 - **Plus de clignotement blanc** (Roblox et autres) : quand une application n’acceptait pas exactement la taille de sa tuile, Better la redimensionnait sans fin, environ 21 fois par seconde, en effaçant son fond. Il propose maintenant la taille pendant un court instant puis accepte celle de l’application. Au repos, une application accrochée ne reçoit plus rien.
