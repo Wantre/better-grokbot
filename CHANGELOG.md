@@ -1,3 +1,29 @@
+# Better GrokBot 1.8.0
+
+## Tuiles
+
+- La poignée de redimensionnement ne se voit plus : le curseur change au passage sur une séparation, et le geste reste le même.
+- **Nouvel aperçu de dépôt** : la future place avec l’icône et le nom de l’application, les autres tuiles en verre sombre.
+- **Sortir une application de Better** : tirez sa barre de titre (la sienne ou celle de Better) hors de la zone des tuiles, par exemple sur la barre du haut ou sur un autre écran.
+
+## Navigateur
+
+- **Onglets rouverts** : ils reviennent quand vous rouvrez le volet Web, pas au démarrage ; seule la page affichée se charge. Ctrl+Maj+T rouvre un onglet fermé.
+- Onglets épinglés et groupés (clic droit), icônes des sites, son coupé par onglet.
+- **Bibliothèque** (Ctrl+Maj+Y) : historique, favoris en dossiers, import des favoris de Chrome, Edge ou Brave, téléchargements avec progression, pause et ouverture du dossier. Better ne lance jamais un programme téléchargé.
+- **Profils** séparés et **navigation privée** (Ctrl+Alt+N). Les extensions restent limitées au profil principal.
+- Publicités autorisées ou bloquées **site par site**, avec le nombre de requêtes bloquées sur la page.
+- **Vidéo flottante** au premier plan.
+
+## Bureau
+
+- **Tout chercher** (Ctrl+Maj+H) : tuiles, fenêtres, applications, onglets, favoris, conversations du Chat IA, historique et fichiers.
+- **Panneau Bureau** (Ctrl+Maj+U) : heure, morceau en cours et volume de Windows, processeur, mémoire, disque, batterie et réseau.
+- **Presse-papiers** : désactivé tant que vous ne l’activez pas, gardé sur ce PC et chiffré avec votre session Windows.
+- **Centre de notifications** des messages de Better.
+- **Raccourcis clavier personnalisables** (les flèches et chiffres des tuiles restent fixes).
+- **Écrans** : déplacer Better (Ctrl+Alt+O), l’étaler sur tous les écrans, ou envoyer une application sur un autre écran.
+
 # Better GrokBot 1.7.9
 
 - **Pubs des vidéos YouTube** : le bloqueur retire les annonces de la réponse du lecteur avant que la page ne les lise, saute celle qui passerait quand même et masque les emplacements publicitaires. Lors de notre essai sur trois vidéos, aucune pub ne s’est lancée. YouTube change souvent : une annonce peut réapparaître.
