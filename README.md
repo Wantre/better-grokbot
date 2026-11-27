@@ -25,6 +25,14 @@ Le fichier n’est pas signé : Windows peut afficher SmartScreen (« Windows a 
 
 **Depuis la 1.3** : le bouton de mise à jour de la 1.3 ne peut pas passer en 1.4. Lancez Patch-GrokBot.exe : vos réglages, notes et prompts sont gardés.
 
+## Nouveau dans la 1.8
+
+Le volet Web devient un vrai navigateur, Better gagne un panneau Bureau, et les tuiles se manient plus directement.
+
+- **Navigateur** : Onglets rouverts quand vous revenez au Web, Ctrl+Maj+T, épingles, groupes, icônes et son par onglet. Historique, favoris en dossiers importés de Chrome ou Edge, téléchargements, profils, navigation privée, pubs réglables site par site et vidéo flottante.
+- **Bureau** : Une recherche unique, le morceau en cours et le volume, l’état du PC et du réseau, les notifications de Better, des raccourcis personnalisables et la gestion des écrans. L’historique du presse-papiers est désactivé tant que vous ne l’activez pas ; il reste chiffré sur votre PC.
+- **Tuiles** : Poignée de redimensionnement invisible, nouvel aperçu de dépôt, et une application sort de Better quand vous tirez sa barre de titre hors des tuiles.
+
 ## Nouveau dans la 1.7
 
 - **Tuiles façon Hyprland** : plusieurs applications avec Grok, neuf espaces, cinq dispositions, raccourcis Alt+Maj, fenêtres flottantes, sessions et règles.
