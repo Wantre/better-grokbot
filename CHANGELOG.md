@@ -1,3 +1,11 @@
+# Better GrokBot 1.7.6
+
+- **Plus de vide gris ni de débordement** : la découpe est supprimée. Better lit la taille minimale de chaque application dès l’accrochage et la disposition la respecte, en prenant la place sur les voisines ou en réarrangeant les tuiles. Les onglets n’arrivent que si rien ne tient. Quand un volet ou une petite fenêtre ne laisse pas assez de place, la tuile l’indique au lieu de laisser l’application dépasser.
+- **Étirer et déplacer** : pendant le geste, les applications sont remplacées par leur image floutée et ne prennent leur nouvelle taille qu’une fois, au relâchement. Les tuiles flottantes s’agrandissent de nouveau par leur coin (la poignée avait disparu depuis la 1.7.1).
+- **Menus et volets** : les applications reculent immédiatement et leur image floutée reste à leur place. Au retour, elles sont redessinées, contre les fenêtres blanches.
+- Une tuile flottante ne fait reculer que la tuile qu’elle recouvre.
+- **Extensions** : la page du volet Web se recharge après une installation, une activation ou un retrait ; les extensions actives ont leur icône dans la barre ; le résultat reste affiché dans le menu ; les échecs sont notés dans extensions.log.
+
 # Better GrokBot 1.7.5
 
 - **Onglets en plein cadre** : un clic sur Grok ou sur une autre application change maintenant de fenêtre. Les onglets étaient reconstruits en continu et disparaissaient avant la fin du clic.
